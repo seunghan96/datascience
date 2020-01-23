@@ -59,7 +59,7 @@
 - [학회 발표자료] : "SVM_이승한.pdf" </br> </br>  
 
 ### 11. Bokeh
-- Bokeh를 이용한 다양한 interactive plot 그려보기
+- Bokeh를 이용한 다양한 interactive plot 그려보기 </br> </br>  
 
 ### 12. Interpretation of Black Box model
 - 모델의 복잡도가 높아짐에 따라 떨어지게 되는 모델의 해석력
