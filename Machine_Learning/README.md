@@ -70,4 +70,4 @@
 ### 13. Bayesian Optimization
 - Hyperparameter tuning 시, 자주 사용하는 search 방식인 grid search / random search
 - 이 방식들보다 효율적인 방식으로 optimize!
-- 
+- Exploration & Exploitation
