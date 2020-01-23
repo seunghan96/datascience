@@ -65,4 +65,9 @@
 - 모델의 복잡도가 높아짐에 따라 떨어지게 되는 모델의 해석력
 - 이를 해석하기 위한 다양한 지표들 O
 - 가장 기본적이고 사용하기 쉬운, Feature Importance -> unstability의 문제점
-- 이를 보완한 다양한 지표들 ( 
+- 이를 보완한 다양한 지표들 ( LIME, SHAP, PDP, ICE plot )  </br> </br>  
+
+### 13. Bayesian Optimization
+- Hyperparameter tuning 시, 자주 사용하는 search 방식인 grid search / random search
+- 이 방식들보다 효율적인 방식으로 optimize!
+- 
