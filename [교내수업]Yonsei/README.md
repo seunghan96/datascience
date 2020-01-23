@@ -25,6 +25,7 @@ https://github.com/seunghan96/datascience/tree/master/%5B%EA%B5%90%EB%82%B4%EC%8
 </br>  </br> 
 ## 3. Marketing Analytics
 - 머신러닝 기법들보다는, 기본적인 통계 모델들을 위주로 진행한 수업
+- Hypothesis Testing, Regression, Panel Regression, FA, Multivariate technique, Data Crawling, Clustering
 </br> 
 #### Project
 [Project] 대형마트 매장 관리 방안
