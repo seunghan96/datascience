@@ -12,5 +12,11 @@ LINE에서 주요하게 다룬 두 가지 핵심은 </br>
 이다
 
 ### a. Objective Function
-이 알고리즘의 목적함수 (objective function)을 알아보기 전에, first order proximity와 second order proximity에 대해 알아보자.
-http://mblogthumb2.phinf.naver.net/MjAxNzA1MTlfMSAg/MDAxNDk1MTIwMjk2MjA1.0cpPliMNuBZbUL3hAqFKoCLahw85cyJwi6Hsbz0wHfIg.h_0Gv7gD3poF-8oTiw0XqOgqNdRaIgL5Ih4Hcd6GjEIg.PNG.hist0134/image.png?type=w800
+이 알고리즘의 목적함수 (objective function)을 알아보기 전에, first order proximity와 second order proximity에 대해 먼저 알아보자. 여기서 proximity는 근접성, 쉽게 표현하면 얼마나 가까운지(비슷한지)로, similiarity로 표현하여도 무방하다. 이 두 proximity(similarity)는 다음과 같이 한 문장으로 표현할 수 있다.</br>
+
+**first order proximity?** : "두 node를 연결하는 weight가 높다면 두 node는 비슷하다"  </br>
+**second order proximity?** : "두 node가 서로 공유하고 있는 node들 (neighbours)이 비슷하다면, 두 node는 비슷하다" </br> </br>
+
+아래 그림을 예시로 보자. </br>
+<img src="http://mblogthumb2.phinf.naver.net/MjAxNzA1MTlfMSAg/MDAxNDk1MTIwMjk2MjA1.0cpPliMNuBZbUL3hAqFKoCLahw85cyJwi6Hsbz0wHfIg.h_0Gv7gD3poF-8oTiw0XqOgqNdRaIgL5Ih4Hcd6GjEIg.PNG.hist0134/image.png?type=w800" width="300" height="270" /> 
+
