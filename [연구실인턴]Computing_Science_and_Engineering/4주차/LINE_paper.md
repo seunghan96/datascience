@@ -18,5 +18,16 @@ LINE에서 주요하게 다룬 두 가지 핵심은 </br>
 **second order proximity?** : "두 node가 서로 공유하고 있는 node들 (neighbours)이 비슷하다면, 두 node는 비슷하다" </br> </br>
 
 아래 그림을 예시로 보자. </br>
-<img src="http://mblogthumb2.phinf.naver.net/MjAxNzA1MTlfMSAg/MDAxNDk1MTIwMjk2MjA1.0cpPliMNuBZbUL3hAqFKoCLahw85cyJwi6Hsbz0wHfIg.h_0Gv7gD3poF-8oTiw0XqOgqNdRaIgL5Ih4Hcd6GjEIg.PNG.hist0134/image.png?type=w800" width="600" height="300" /> 
+<img src="http://mblogthumb2.phinf.naver.net/MjAxNzA1MTlfMSAg/MDAxNDk1MTIwMjk2MjA1.0cpPliMNuBZbUL3hAqFKoCLahw85cyJwi6Hsbz0wHfIg.h_0Gv7gD3poF-8oTiw0XqOgqNdRaIgL5Ih4Hcd6GjEIg.PNG.hist0134/image.png?type=w800" width="600" height="300" />   </br>
+
+이 그림에서, node 6과 node 7은 서로 강하게 연결(high weight)되어 있다. 그렇기 때문에 이 둘은 서로 높은 "first order proximity"를 가진다고 할 수 있다. 이에 반해, node5와 node6은 서로 연결되어 있지는 않지만, 이 둘이 공유하는 노드는 4개나 있다(node1~4). 그렇기 때문에 이 둘은 "second order proximity"가 높다고 할 수 있다. </br>
+이처럼, LINE은 두 가지 측면에서 simliarity를 바라본다.
+
+**WHY?** </br>
+기존에 있던 대부분의 graph embedding algorithm들은 "first-order proximity"를 잘 보존하는 embedding model을 만들었다. 하지만, 오늘 날 real world는, 그 node/vertice수 (ex. text속의 단어 수 혹은 facebook의 회원의 수 등)가 매우 많기 때문에 임의로 뽑은 서로 다른 두개의 node사이에 link가 없는 경우가 대부분이기 때문에 , 이 first order proximity로만 표현하기엔 적절하지 않다. 그래서 이를 보완하고자 second order proximity가 등장하게 된것이다. LINE은 이 두가지를 모두 고려한다. </br></br>
+***"local" structure를 잡아내기 위한 "first order proximity", "global" structure를 잡아내기 위한 "second order proximity"***
+
+### b. edge sampling algorithm
+
+
 
