@@ -28,6 +28,9 @@ LINE에서 주요하게 다룬 두 가지 핵심은 </br>
 ***"local" structure를 잡아내기 위한 "first order proximity", "global" structure를 잡아내기 위한 "second order proximity"***
 
 ### b. edge sampling algorithm : Negative Sampling
-위 처럼 이 두 가지를 모두 고려한 objective function(수식은 이후에 자세히 설명)이 있다고 하더라도, optimize하기에는 쉽지 않다. 최근에 자주 사용하는 optimization 방법으로 SGD(Stochastic Gradient Descent)가 있긴 하지만, 현실 세계의 network에서는 이를 저굥하기가 쉽지 않다. update 해야 할 weight의 수(수 많은 node로 인한 수 많은 edge들!)가 너무 많기 때문이다. 이러기 위해 LINE은 negative sampling을 사용한다(
+위 처럼 이 두 가지를 모두 고려한 objective function(수식은 이후에 자세히 설명)이 있다고 하더라도, optimize하기에는 쉽지 않다. 최근에 자주 사용하는 optimization 방법으로 SGD(Stochastic Gradient Descent)가 있긴 하지만, 현실 세계의 network에서는 이를 저굥하기가 쉽지 않다. update 해야 할 weight의 수(수 많은 node로 인한 수 많은 edge들!)가 너무 많기 때문이다. 이러기 위해 LINE은 negative sampling을 사용하여 효율성을 높인다. (https://github.com/seunghan96/datascience/blob/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering/2%EC%A3%BC%EC%B0%A8/Negative_Sampling.md 참고) </br>
+weight를 update하는데에 있어서 모든 edge를 대상으로 하지 않고, 일부를 sample하는 방식이다. 각 edge가 sample될 확률은 해당 edge가 가지는 weight와 비례한다. 
+
+
 
 
