@@ -3,7 +3,7 @@
 
 ## INTRODUCTION
 이 논문은 network 상의 매우 많은 vertices들을 어떻게 저차원의 vector space로 embedding하는지에 관한 글이다. 이렇게 저차원 공간으로 임베딩하는 주요 이유는 "visualization", "node classification"( 해당 node/vertice가 어느 class에 속하는지 ), "link prediction"( 두 node가 서로 연결되어있는지 predict ) 등이 있다. </br>
-네트워크 임베딩에 여러 방법들이 있지만, 이 논문에서 제시하는 LINE은 undirected/directed/weighted 네트워크에 모두 적용 가능하며, 특히 node수가 매우 많은 "large scale"에서 다른 방법들에 비해 효율적으로 빠르게 작동한다는 점에서 눈에 띈다.
+네트워크 임베딩에 여러 방법들이 있지만, 이 논문에서 제시하는 LINE은 undirected/directed/weighted 네트워크에 모두 적용 가능하며, 특히 node수가 많은 "large scale"에서 다른 방법들에 비해 효율적으로 빠르게 작동한다는 점에서 눈에 띈다.  </br></br>
 
 ## CONTRIBUTION
 LINE에서 주요하게 다룬 두 가지 핵심은 </br>
