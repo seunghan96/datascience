@@ -7,8 +7,8 @@
 - Array, Queue, Stack, Linked List
 - time complexity
 - hash table
-- Tree / Heap 
-</br>
+- Tree / Heap </br>
+
 ## 2. 알고리즘 이론
 **(1) Basic**
 - recursive call
