@@ -9,17 +9,16 @@
 - hash table
 - Tree / Heap 
 </br>
-
 ## 2. 알고리즘 이론
 **(1) Basic**
 - recursive call
 - sorting (quick, merge, binary)
 - dynamic programming & divide and conquer
-
+</br>
 **(2) Graph**
 - basic graph algorithm
 - Search algorithm (BFS,DFS)
 - Dijkstra algorithm
-
+</br>
 **(3) Back tracking**
 - with N-Queen problem
