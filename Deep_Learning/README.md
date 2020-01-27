@@ -26,4 +26,15 @@
 - 1 . Topic Modeling ( LDA, LSA )
 - 2 . Text Generation using RNN ( RNN, LSTM, Char_RNN )
 - 3 . Word Embedding ( Cosine similarity, word2vec, GloVe, ELMo ) </br>
-( word2vec 관련 구체적인 내용은 https://github.com/seunghan96/datascience/tree/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering 참고) 
+( word2vec 및 Network Embedding 관련 구체적인 내용은 https://github.com/seunghan96/datascience/tree/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering 참고) 
+- 4 . Text Classification ( News Group, Spam, Reuter News로 실습 )
+- 5 . Tagging ( Named Entity Recognition & POS tagging )
+- 6 . Neural Machine Translation (NMT) ( Seq2Seq, Attention, Transformer & BLEU score )
+- 자연어 처리 딥러닝 캠프 코드 연습
+- Vanilla RNN, Seq2Seq, Attention 구현
+
+## 4. Generative Adversarial Network
+- ( 코드 보다는 이론 위주로 학습 )
+- GAN, AutoEncoder, Variational AutoEncoder (VAE)
+
+## 추가. Tensorflow 2 & Pytorch 사용법
