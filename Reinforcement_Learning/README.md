@@ -1,4 +1,5 @@
-## Reinforcement Learning
+# [ Reinforcement Learning ]
+
 ### 학습 방식
 - [강의] 모두를 위한 강화학습 (Sung Kim), Fast Campus
 - [교재] 케라스로 구현하는 고급 딥러닝 알고리즘(wikibooks)
