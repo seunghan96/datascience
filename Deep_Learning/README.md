@@ -31,10 +31,10 @@
 - 5 . Tagging ( Named Entity Recognition & POS tagging )
 - 6 . Neural Machine Translation (NMT) ( Seq2Seq, Attention, Transformer & BLEU score )
 - 자연어 처리 딥러닝 캠프 코드 연습
-- Vanilla RNN, Seq2Seq, Attention 구현
+- Vanilla RNN, Seq2Seq, Attention 구현 </br> </br>
 
 ## 4. Generative Adversarial Network
 - ( 코드 보다는 이론 위주로 학습 )
-- GAN, AutoEncoder, Variational AutoEncoder (VAE)
+- GAN, AutoEncoder, Variational AutoEncoder (VAE) </br> </br>
 
-## 추가. Tensorflow 2 & Pytorch 사용법
+## [기타] Tensorflow 2 & Pytorch 사용법
