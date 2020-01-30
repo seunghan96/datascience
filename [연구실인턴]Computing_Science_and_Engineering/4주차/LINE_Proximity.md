@@ -24,11 +24,11 @@
 
 ### 2. LINE with Second-order Proximity
 이 proximity를 objective function에서 사용하는 이유는, "나(하나의 vertex)와 직접적인 연관이 어떨지는 모르겠지만, 나와 공유하고 있는 친구(연결되어 있는 주변의 vertex)가 유사한 어떤 vertex가 있다면, 나와 그 vertex는 가까운 위치에 임베딩 되도록 훈려하기 위해서"라고 할 수 있다.
-second order proximity는 first order와는 다르게, directed graph뿐만 아니라 undirected graph에서도 사용할 수 있다는 장점이 있다. 여기서 특이한 점은, 하나의 vertex가 이를 대표하는 하나의 vector가 아니라 두개의 vector가 있다는 것이다. 즉, 하는 역할이 두 가지 있는데, 하나는 기존과 같이 "(1) 자기 자신을 나타내는 vector"이고, 또 다른 하나는 "(2) 다른 vertices들의 context를 나타내는 vector"이다. 그래서 vertex i가 가지는 두 개의 vector은 각각 (1) <a href="https://www.codecogs.com/eqnedit.php?latex=\vec{u}_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\vec{u}_i" title="\vec{u}_i" /></a>(vertex itself) 와, (2) <a href="https://www.codecogs.com/eqnedit.php?latex=\vec{u'}_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\vec{u'}_i" title="\vec{u'}_i" /></a>(context of other vertices)이다. </br> 
-따라서, 하나의 directed edge (i,j)에, 우리는 우선 vector i에 의해 생성된 "context" vector j의 probability를 다음과 같이 정의한다.</br> </br> 
+second order proximity는 first order와는 다르게, directed graph뿐만 아니라 undirected graph에서도 사용할 수 있다는 장점이 있다. 여기서 특이한 점은, 하나의 vertex가 이를 대표하는 하나의 vector가 아니라 두개의 vector가 있다는 것이다. 즉, 하는 역할이 두 가지 있는데, 하나는 기존과 같이 "(1) 자기 자신을 나타내는 vector"이고, 또 다른 하나는 "(2) 다른 vertices들의 context를 나타내는 vector"이다. 그래서 vertex i가 가지는 두 개의 vector은 각각 (1) <a href="https://www.codecogs.com/eqnedit.php?latex=\vec{u}_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\vec{u}_i" title="\vec{u}_i" /></a>(vertex itself) 와, (2) <a href="https://www.codecogs.com/eqnedit.php?latex=\vec{u'}_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\vec{u'}_i" title="\vec{u'}_i" /></a>(context of other vertices)이다. ( 이 둘을 앞으로 각각 'vector itself'하고 'context vector'라고 표현하겠다 )</br> 
+따라서, 하나의 directed edge (i,j)에, 우리는 우선 vector i에 의해 생성된 vector j의 context vector의 probability를 다음과 같이 정의한다.</br> </br> 
 (식5) <a href="https://www.codecogs.com/eqnedit.php?latex=p_2(v_j|v_i)&space;=&space;\frac{exp(\vec{u_j'}^T\cdot&space;\vec{u}_i)}{\sum_{k=1}^{|V|}exp(\vec{u_k'}^T\cdot&space;\vec{u}_i)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_2(v_j|v_i)&space;=&space;\frac{exp(\vec{u_j'}^T\cdot&space;\vec{u}_i)}{\sum_{k=1}^{|V|}exp(\vec{u_k'}^T\cdot&space;\vec{u}_i)}" title="p_2(v_j|v_i) = \frac{exp(\vec{u_j'}^T\cdot \vec{u}_i)}{\sum_{k=1}^{|V|}exp(\vec{u_k'}^T\cdot \vec{u}_i)}" /></a>
-</br> 
-( 여기서 |V|는 vertice의 수를 나타낸다 )</br> 
-여기서 식(5)는 
+
+( 여기서 |V|는 vertice의 수를 나타낸다 )</br> </br> 
+여기서 식(5)을 확장해서 적용하면, 
 
 
