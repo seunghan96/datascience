@@ -9,9 +9,15 @@
 하나의 undirected edge (i,j)가 있다고 하자. 이 edge의 양 끝에 연결된 두 개의 vertex는 vi와 vj이고, </br> 
 이 둘의 joint probability는 다음과 같다.  ( 아래 식에서 ui는 vertex vi의 embedding 이후의 low-dimensional 표현이다 ) </br> </br>
 (식1) <a href="https://www.codecogs.com/eqnedit.php?latex=p_1(v_i,v_j)&space;=&space;\frac{1}{1&plus;exp(-\vec{u}_i^T\cdot\vec{u}_j)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_1(v_i,v_j)&space;=&space;\frac{1}{1&plus;exp(-\vec{u}_i^T\cdot\vec{u}_j)}" title="p_1(v_i,v_j) = \frac{1}{1+exp(-\vec{u}_i^T\cdot\vec{u}_j)}" /></a>
- </br> </br>  
-직관적으로 생각해서, 두 node의 vector의 내적 값이 크면, (즉 두 vector가 유사하면) 위 p값은 커질 것이고, 작아지면 p값도 작아질 것이다. 이 식을 다음과 같이 <a href="https://www.codecogs.com/eqnedit.php?latex=p(\cdot&space;,\cdot&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p(\cdot&space;,\cdot&space;)" title="p(\cdot ,\cdot )" /></a>로 줄여서 표현하자. 그리고 이것의 empirical probability는, 다음과 같이 '모든 edge들의 weight의 합에서 특정 edge의 weight가 차지하는 비중'으로 표현할 수 있다.
-</br> </br>  
+</br> 
+직관적으로 생각해서, 두 node의 vector의 내적 값이 크면, (즉 두 vector가 유사하면) 위 p값은 커질 것이고, 작아지면 p값도 작아질 것이다. 이 식을 다음과 같이 <a href="https://www.codecogs.com/eqnedit.php?latex=p_1(\cdot&space;,\cdot&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_1(\cdot&space;,\cdot&space;)" title="p_1(\cdot ,\cdot )" /></a>로 줄여서 표현하자. 그리고 이것의 empirical probability는, 다음과 같이 '모든 edge들의 weight의 합에서 특정 edge의 weight가 차지하는 비중'으로 표현할 수 있다.
+</br> 
 (식2) <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{p}_i(i,j)&space;=&space;\frac{w_i_j}{W}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{p}_i(i,j)&space;=&space;\frac{w_i_j}{W}" title="\hat{p}_i(i,j) = \frac{w_i_j}{W}" /></a>
-</br> </br>  
-그러므로, first order proximity를 잘 반영한 objective function은 다음과 같이 두개의 
+</br> 위 값도 다음과 같이 <a href="https://www.codecogs.com/eqnedit.php?latex=\hat{p_1}(\cdot&space;,\cdot&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\hat{p_1}(\cdot&space;,\cdot&space;)" title="\hat{p_1}(\cdot ,\cdot )" /></a>로 줄여서 표현한다.
+</br> 
+그러므로, first order proximity를 잘 반영한 objective function은 다음과 같이 2개의 값의 거리(d)로 나타낼 수 있다.</br> 
+<a href="https://www.codecogs.com/eqnedit.php?latex=O_1&space;=&space;d(\hat{p}(\cdot&space;,\cdot&space;),p_1(\cdot&space;,\cdot&space;))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O_1&space;=&space;d(\hat{p}(\cdot&space;,\cdot&space;),p_1(\cdot&space;,\cdot&space;))" title="O_1 = d(\hat{p}(\cdot ,\cdot ),p_1(\cdot ,\cdot ))" /></a> </br> 
+여기서 거리 d는 KL-divergence로 표현되며, 이를 정리하면 다음과 같은 식으로 표현할 수 있다.</br> 
+<a href="https://www.codecogs.com/eqnedit.php?latex=O_1&space;=&space;-\sum_{(i,j)\in&space;E}^{&space;}w_i_jlogp_1(v_i,v_j)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O_1&space;=&space;-\sum_{(i,j)\in&space;E}^{&space;}w_i_jlogp_1(v_i,v_j)" title="O_1 = -\sum_{(i,j)\in E}^{ }w_i_jlogp_1(v_i,v_j)" /></a>
+
+
