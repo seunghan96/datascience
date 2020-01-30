@@ -20,7 +20,7 @@
 여기서 거리 d는 KL-divergence로 표현되며, 이를 정리하면 다음과 같은 식으로 표현할 수 있다.</br> </br> 
 (식4)<a href="https://www.codecogs.com/eqnedit.php?latex=O_1&space;=&space;-\sum_{(i,j)\in&space;E}^{&space;}w_i_jlogp_1(v_i,v_j)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O_1&space;=&space;-\sum_{(i,j)\in&space;E}^{&space;}w_i_jlogp_1(v_i,v_j)" title="O_1 = -\sum_{(i,j)\in E}^{ }w_i_jlogp_1(v_i,v_j)" /></a>
 
-따라서 위 값을 minimize하는 방향으로 optimize를 할 경우, first-order proximity를 잘 반영하는 network embedding model을 만들 수 있을 것이다.
+따라서 위 값을 minimize하는 방향으로 optimize를 할 경우, first-order proximity를 잘 반영하는 network embedding model을 만들 수 있을 것이다.</br> 
 
 ### 2. LINE with Second-order Proximity
 이 proximity를 objective function에서 사용하는 이유는, "나(하나의 vertex)와 직접적인 연관이 어떨지는 모르겠지만, 나와 공유하고 있는 친구(연결되어 있는 주변의 vertex)가 유사한 어떤 vertex가 있다면, 나와 그 vertex는 가까운 위치에 임베딩 되도록 훈려하기 위해서"라고 할 수 있다.
