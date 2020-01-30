@@ -35,8 +35,8 @@ second order proximity는 first order와는 다르게, directed graph뿐만 아�
 그래서 objective function은 다음과 같은 O2값으로, 이를 minimize하는 방향으로 weight가 update된다. </br> </br> 
 <a href="https://www.codecogs.com/eqnedit.php?latex=O_2&space;=&space;\sum_{i\in&space;V}^{&space;}\lambda&space;_id(\hat{p}(\cdot&space;|v_i),p_2(\cdot&space;|v_i))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O_2&space;=&space;\sum_{i\in&space;V}^{&space;}\lambda&space;_id(\hat{p}(\cdot&space;|v_i),p_2(\cdot&space;|v_i))" title="O_2 = \sum_{i\in V}^{ }\lambda _id(\hat{p}(\cdot |v_i),p_2(\cdot |v_i))" /></a> </br> </br> 
 위 식에서 람다는, network상에서 vertex별로 중요도가 다를 수 있기 때문에 이를 반영하기 위해 사용하는 값이다. 그리고 이 람다값을 우리는 simplicity를 위해 <a href="https://www.codecogs.com/eqnedit.php?latex=d_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?d_i" title="d_i" /></a>로 사용한다. 이 objective function에서의 distance function인 d는, first-order proximity와 마찬가지로 KL-divergence를 사용한다. 이를 대입하고 정리하면 다음과 같은 식이 완성된다. </br> </br> 
-
-
+<a href="https://www.codecogs.com/eqnedit.php?latex=O_2&space;=&space;-&space;\sum_{(i,j)\in&space;E}^{&space;}&space;w_i_jlogp_2(v_i|v_j)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O_2&space;=&space;-&space;\sum_{(i,j)\in&space;E}^{&space;}&space;w_i_jlogp_2(v_i|v_j)" title="O_2 = - \sum_{(i,j)\in E}^{ } w_i_jlogp_2(v_i|v_j)" /></a>
+</br> </br> 
 
 
 
