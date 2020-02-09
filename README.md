@@ -4,8 +4,9 @@
 - 연세대학교 경영학과/응용통계학과 : 2015.03~
 - Bitamin(빅데이터 분석 동아리) : 2018.07~2019.02
 - DataScience Lab(연세대학교 데이터사이언스 학회) : 2019.01~          
+- SKT > AI 홈유닛 > Datascience 체험형 인턴 : 2019.07~2019.08
 - Computational Science and Engineering > DataScience (연세대학교 계산과학공학과 학부생 인턴) : 2020.01 ~
-- 사용 가능 언어 : Python, R, SQL
+- ( 사용 가능 언어 : Python, R, SQL )
 
 ## Contents
 #### 01. Machine Learning
