@@ -53,25 +53,32 @@ with these two assumption, the objective function can be simplified into </br> <
 ## 3-1. Class search strategies
 - sample neighbors of a source node as a form of local search
 
-#### [ two kind of similarities ]
- 1) homophily
+### [ two kind of similarities ]
+ 1) **homophily**
  - highly interconnected -> should be embedded closely </br>
-  ( ex. u & s1 share same community ) </br>
- 2) structural equivalence
+ - macro view
+ - infer communities based on distances </br>
+  ( ex. u & s1 : community A, s8 & s9 : community B ) </br>
+ 2) **structural equivalence**
  - similar structural roles -> embedded together </br>
-  ( example with the image above : u & s6 )
- - does not emphasize connectivity! ( ex. u & s6 are not connected, but act as hubs of communities )
+ - micro view( example with the image above : u & s6 )
+ - does not emphasize connectivity! </br>
+  ( ex. u & s6 : act as hubs of communities )
  
- #### [ two search algorithms ]
+ 
+### [ two search algorithms ]
 - two sampling strategies for generating neighborhood sets N(s) of k nodes ( BFS & DFS )
 <img src="https://i.stack.imgur.com/vm0sn.png" width="450" /> </br>
 (https://i.stack.imgur.com/vm0sn.png)
 
 #### a. Breadth-first Sampling(BFS)
 - neighborhood : only immediate neighbors of the source node
+- micro-view
+- for 'structural equivalence' </br> 
 
 #### b. Depth-first Sampling(DFS) </br>
 - neighborhood : nodes sequentially sampled at increasing distance from the source node
-
+- macro-view
+- for 'homophily' </br>
 </br>
 ** BFS & DFS implementation : (https://github.com/seunghan96/datascience/tree/master/Data_Structure/2.Algorithm/Graph_Algorithm)
