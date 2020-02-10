@@ -89,12 +89,12 @@ with these two assumption, the objective function can be simplified into </br> <
 - interporlate between BFS & DFS
 - by developing a flexible biased random walk procedure ( that can explore neighborhoods both in BFS & DFS fashion )
 
-#### (1) Random Walks
+### (1) Random Walks
 <img src="https://imgs.developpaper.com/imgs/1040424763-5d24676e0d0d9_articlex.png" width="450" /> </br>
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}" title="\pi_{vx}" /></a> : unnormalized transition probability between nodes v & x
 - Z : normalizing constant </br>
 
-#### (2) Search bias <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /></a>
+### (2) Search bias <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /></a>
 - simple way to bias randm walk : based on edge weights -> hard to find different types of network structure
 - ( REMEMBER! homophily & structure equivalence are not in trade-off ! So, how to achieve both? )
 </br>
@@ -112,3 +112,16 @@ https://www.mdpi.com/algorithms/algorithms-12-00012/article_deploy/html/images/a
 
 - parameters p & q : control how fast the random walk explores!
 - these two parameters allow the search to interpolate between BFS & DFS
+
+#### A. Return parameter, p
+- controls the likelihood of "immediately revisiting a node in the walk"
+- high p -> less likely to sample the pre-visited nodes ( in the following two steps )
+- low p -> keep the walk "local" close to the starting node
+
+#### B. In-out parameter, q
+- allows the search to differentiate between 'inward & outward' nodes
+- q > 1 : to nodes close to node 't'
+- q < 1 : get further from node 't' => encourages exploration
+
+### (3) node2vec algorithm
+<img src="https://pic3.zhimg.com/v2-e83b878c85159ed12ace2b98469f6c96_b.jpg" title="\pi_{vx}" width="480" /></a> 
