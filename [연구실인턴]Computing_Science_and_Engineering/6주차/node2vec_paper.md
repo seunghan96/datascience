@@ -98,7 +98,8 @@ with these two assumption, the objective function can be simplified into </br> <
 - simple way to bias randm walk : based on edge weights -> hard to find different types of network structure
 - ( REMEMBER! homophily & structure equivalence are not in trade-off ! So, how to achieve both? )
 </br>
-**Second order random walk with 2 parameters, p & q** </br>
+
+#### [ Second order random walk with 2 parameters, p & q ]</br>
 Example
 - passed the edge (t,v) just before! ( previous state : node t & current state : node v )
 - to decide next step, evaluate transition probability <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}" title="\pi_{vx}" /></a> 
