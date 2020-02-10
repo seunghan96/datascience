@@ -16,7 +16,6 @@
  * (1) multi-label classification : which class does each node belongs to
  * (2) link prediction : predict whether there is a connection between two nodes
 </br>
-</br>
 
 ## 2. Feature learning Framework
 - applicable to any (un)directed & (un)weighted network
@@ -49,7 +48,6 @@ with these two assumption, the objective function can be simplified into </br> <
 <a href="https://www.codecogs.com/eqnedit.php?latex=\underset{f}{max}&space;\sum_{u&space;\in&space;V}^{&space;}&space;[&space;-logZ_u&plus;&space;\sum_{n_i&space;\in&space;N_S(u)}f(n_i)&space;\cdot&space;f(u)]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\underset{f}{max}&space;\sum_{u&space;\in&space;V}^{&space;}&space;[&space;-logZ_u&plus;&space;\sum_{n_i&space;\in&space;N_S(u)}f(n_i)&space;\cdot&space;f(u)]" title="\underset{f}{max} \sum_{u \in V}^{ } [ -logZ_u+ \sum_{n_i \in N_S(u)}f(n_i) \cdot f(u)]" /></a> </br> </br>
 ( in the above, <a href="https://www.codecogs.com/eqnedit.php?latex=Z_u&space;=&space;\sum_{v&space;\in&space;V}^{&space;}exp(f(u)\cdot&space;f(v))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_u&space;=&space;\sum_{v&space;\in&space;V}^{&space;}exp(f(u)\cdot&space;f(v))" title="Z_u = \sum_{v \in V}^{ }exp(f(u)\cdot f(v))" /></a> is too expensive to compute! use negative sampling ) </br> </br>
 ** negative sampling : https://github.com/seunghan96/datascience/blob/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering/4%EC%A3%BC%EC%B0%A8/Negative_Sampling.md </br>
-
 </br>
 
 ## 3-1. Class search strategies
@@ -84,3 +82,27 @@ with these two assumption, the objective function can be simplified into </br> <
 - for 'homophily' </br>
 </br>
 ** BFS & DFS implementation : (https://github.com/seunghan96/datascience/tree/master/Data_Structure/2.Algorithm/Graph_Algorithm)
+</br>
+
+## 3-2. node2vec
+- interporlate between BFS & DFS
+- by developing a flexible biased random walk procedure ( that can explore neighborhoods both in BFS & DFS fashion )
+
+#### (1) Random Walks
+<img src="https://imgs.developpaper.com/imgs/1040424763-5d24676e0d0d9_articlex.png" width="450" /> </br>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}" title="\pi_{vx}" /></a> : unnormalized transition probability between nodes v & x
+- Z : normalizing constant
+</br>
+
+#### (2) Search bias <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /></a>
+- simple way to bias randm walk : based on edge weights -> hard to find different types of network structure
+- ( REMEMBER! homophily & structure equivalence are not in trade-off ! So, how to achieve both? )
+</br>
+** Second order random walk with 2 parameters, p & q ** </br>
+Example
+- passed the edge (t,v) just before! ( previous state : node t & current state : node v )
+- to decide next step, evaluate transition probability <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}" title="\pi_{vx}" /></a> 
+- set the unnormalized transition probability to <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}&space;=&space;\alpha_{pq}(t,x)\cdot&space;w_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}&space;=&space;\alpha_{pq}(t,x)\cdot&space;w_{vx}" title="\pi_{vx} = \alpha_{pq}(t,x)\cdot w_{vx}" /></a>
+</br>
+<img src="https://imgs.developpaper.com/imgs/389826768-5d24676e0486e_articlex.png" title="\pi_{vx}" /></a> 
+</br>
