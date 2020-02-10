@@ -52,7 +52,8 @@ with these two assumption, the objective function can be simplified into </br> <
 
 ## 3-1. Class search strategies
 - sample neighbors of a source node as a form of local search
-- two kind of similarities
+
+#### [ two kind of similarities ]
  1) homophily
  - highly interconnected -> should be embedded closely </br>
   ( ex. u & s1 share same community ) </br>
@@ -61,9 +62,9 @@ with these two assumption, the objective function can be simplified into </br> <
   ( example with the image above : u & s6 )
  - does not emphasize connectivity! ( ex. u & s6 are not connected, but act as hubs of communities )
  
- 
+ #### [ two search algorithms ]
 - two sampling strategies for generating neighborhood sets N(s) of k nodes ( BFS & DFS )
-<img src="https://i.stack.imgur.com/vm0sn.png" width="450" height="250" /> </br>
+<img src="https://i.stack.imgur.com/vm0sn.png" width="450" /> </br>
 (https://i.stack.imgur.com/vm0sn.png)
 
 #### a. Breadth-first Sampling(BFS)
