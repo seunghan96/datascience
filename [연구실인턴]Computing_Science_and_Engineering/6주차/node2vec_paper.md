@@ -107,3 +107,7 @@ Example
 <img src="https://imgs.developpaper.com/imgs/389826768-5d24676e0486e_articlex.png" title="\pi_{vx}" width="350" /></a> 
 <a href="https://www.codecogs.com/eqnedit.php?latex=d_{tx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?d_{tx}" title="d_{tx}" /></a> is the shortest path distance between node t & x -> minimum 0, maximum 2)
 <img src="https://www.mdpi.com/algorithms/algorithms-12-00012/article_deploy/html/images/algorithms-12-00012-g004.png" title="\pi_{vx}" width="350" /></a> 
+https://www.mdpi.com/algorithms/algorithms-12-00012/article_deploy/html/images/algorithms-12-00012-g004.png
+
+- parameters p & q : control how fast the random walk explores!
+- these two parameters allow the search to interpolate between BFS & DFS
