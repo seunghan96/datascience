@@ -16,6 +16,7 @@
  * (1) multi-label classification : which class does each node belongs to
  * (2) link prediction : predict whether there is a connection between two nodes
 </br>
+</br>
 
 ## 2. Feature learning Framework
 - applicable to any (un)directed & (un)weighted network
@@ -49,6 +50,7 @@ with these two assumption, the objective function can be simplified into </br> <
 ( in the above, <a href="https://www.codecogs.com/eqnedit.php?latex=Z_u&space;=&space;\sum_{v&space;\in&space;V}^{&space;}exp(f(u)\cdot&space;f(v))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_u&space;=&space;\sum_{v&space;\in&space;V}^{&space;}exp(f(u)\cdot&space;f(v))" title="Z_u = \sum_{v \in V}^{ }exp(f(u)\cdot f(v))" /></a> is too expensive to compute! use negative sampling ) </br> </br>
 ** negative sampling : https://github.com/seunghan96/datascience/blob/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering/4%EC%A3%BC%EC%B0%A8/Negative_Sampling.md 
 </br>
+</br>
 
 ## 3-1. Class search strategies
 - sample neighbors of a source node as a form of local search
@@ -63,9 +65,9 @@ with these two assumption, the objective function can be simplified into </br> <
  - similar structural roles -> embedded together </br>
  - micro view( example with the image above : u & s6 )
  - does not emphasize connectivity! </br>
-  ( ex. u & s6 : act as hubs of communities )
- 
- 
+  ( ex. u & s6 : act as hubs of communities ) 
+</br>
+
 ### [ two search algorithms ]
 - two sampling strategies for generating neighborhood sets N(s) of k nodes ( BFS & DFS )
 <img src="https://i.stack.imgur.com/vm0sn.png" width="450" /> </br>
