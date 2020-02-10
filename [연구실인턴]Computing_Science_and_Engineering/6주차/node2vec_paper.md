@@ -92,8 +92,7 @@ with these two assumption, the objective function can be simplified into </br> <
 #### (1) Random Walks
 <img src="https://imgs.developpaper.com/imgs/1040424763-5d24676e0d0d9_articlex.png" width="450" /> </br>
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}" title="\pi_{vx}" /></a> : unnormalized transition probability between nodes v & x
-- Z : normalizing constant
-</br>
+- Z : normalizing constant </br>
 
 #### (2) Search bias <a href="https://www.codecogs.com/eqnedit.php?latex=\alpha" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /></a>
 - simple way to bias randm walk : based on edge weights -> hard to find different types of network structure
@@ -105,5 +104,8 @@ Example
 - to decide next step, evaluate transition probability <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}" title="\pi_{vx}" /></a> 
 - set the unnormalized transition probability to <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_{vx}&space;=&space;\alpha_{pq}(t,x)\cdot&space;w_{vx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_{vx}&space;=&space;\alpha_{pq}(t,x)\cdot&space;w_{vx}" title="\pi_{vx} = \alpha_{pq}(t,x)\cdot w_{vx}" /></a>
 </br>
-<img src="https://imgs.developpaper.com/imgs/389826768-5d24676e0486e_articlex.png" title="\pi_{vx}" width="200" /></a> 
+<img src="https://imgs.developpaper.com/imgs/389826768-5d24676e0486e_articlex.png" title="\pi_{vx}" width="350" /></a> 
 </br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=d_{tx}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?d_{tx}" title="d_{tx}" /></a> is the shortest path distance between node t & x -> minimum 0, maximum 2)
+</br>
+<img src="https://www.mdpi.com/algorithms/algorithms-12-00012/article_deploy/html/images/algorithms-12-00012-g004.png" title="\pi_{vx}" width="350" /></a> 
