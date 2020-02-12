@@ -1,4 +1,4 @@
-# SUMMARY
+# SUMMARY ( 기초 자료구조 )
 
 ### 1. Array & Queue
 - Array : 같은 종류의 데이터를 효율적으로 관리 & 순차적으로 저장
