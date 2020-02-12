@@ -27,9 +27,16 @@
 </br>
 
 ### 3. Elastic Net ( L1+L2 regularization )
+- Ridge와 Lasso의 L1,L2 norm을 둘 다 사용!
+- 수식 : </br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=L(x,y)&space;=&space;\sum_{i=1}^{n}(y_i&space;-&space;h_\theta(x_i))^2&space;&plus;&space;\lambda_1\sum_{i=1}^{n}|\theta_i|&space;&plus;&space;\lambda_2\sum_{i=1}^{n}\theta_i^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(x,y)&space;=&space;\sum_{i=1}^{n}(y_i&space;-&space;h_\theta(x_i))^2&space;&plus;&space;\lambda_1\sum_{i=1}^{n}|\theta_i|&space;&plus;&space;\lambda_2\sum_{i=1}^{n}\theta_i^2" title="L(x,y) = \sum_{i=1}^{n}(y_i - h_\theta(x_i))^2 + \lambda_1\sum_{i=1}^{n}|\theta_i| + \lambda_2\sum_{i=1}^{n}\theta_i^2" /></a>
+</br>
 
+#### Ridge, Lasso, Elastic Net
+<img src="https://cdn-images-1.medium.com/max/1200/0*kuuC8_3Q2YjoLoqt.png" width="550" /> </br>
 https://cdn-images-1.medium.com/max/1200/0*kuuC8_3Q2YjoLoqt.png
+</br>
 
 ### 적절한 lambda 값은?
 Cross Validation을 시행하여 MSE를 가장 작게 만드는 lambda값 선택!
-<img src="https://i.stack.imgur.com/bzG36.png" width="550" /> </br>
+<img src="https://i.stack.imgur.com/bzG36.png" width="350" /> </br>
