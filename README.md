@@ -4,7 +4,7 @@
 - 연세대학교 경영학과/응용통계학과 : 2015.03~
 - Bitamin(빅데이터 분석 동아리) : 2018.07~2019.02
 - DataScience Lab(연세대학교 데이터사이언스 학회) : 2019.01~          
-- SKT 체험형 인턴 : 2019.07~2019.08 
+- SKT 체험형 인턴 : 2019.07~2019.08 </br>
  ( AI 홈유닛 > Datascience - 공기질 데이터 분석 )
 - 연세대 계산과학공학과 (Computational Science and Engineering) 대학원 </br>
   학부생 연구원 인턴( Deep Learning > Network Embedding ) : 2020.01 ~
