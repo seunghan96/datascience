@@ -29,3 +29,7 @@
 ### 3. Elastic Net ( L1+L2 regularization )
 
 https://cdn-images-1.medium.com/max/1200/0*kuuC8_3Q2YjoLoqt.png
+
+### 적절한 lambda 값은?
+Cross Validation을 시행하여 MSE를 가장 작게 만드는 lambda값 선택!
+<img src="https://i.stack.imgur.com/bzG36.png" width="550" /> </br>
