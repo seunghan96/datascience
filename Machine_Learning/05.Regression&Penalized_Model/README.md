@@ -37,6 +37,7 @@
 <img src="https://cdn-images-1.medium.com/max/1200/0*kuuC8_3Q2YjoLoqt.png" width="550" /> </br>
 https://cdn-images-1.medium.com/max/1200/0*kuuC8_3Q2YjoLoqt.png
 </br>
+</br>
 
 ### 적절한 lambda 값은? </br>
 Cross Validation을 시행하여 MSE를 가장 작게 만드는 lambda값 선택!  </br>
