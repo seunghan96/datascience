@@ -4,13 +4,13 @@ https://sites.google.com/site/midasyonsei/ </br>
 #### 연구 주제 : Network Embedding
 </br>
 
-Paper 
+## [ Paper ]
 #### 1) DeepWalk : Online Learning of Social Representations
 #### 2) LINE : Large-scale Information Network Embedding 
 #### 3) node2vec : Scalable Feature Learning for Networks
 </br>
 
-Implementation ( with numpy )
+## [ Implementation ( with numpy ) ]
 - BackPropagation
 - Deepwalk with Softmax (Skip-gram)
 - Deepwalk with Hierarchical Softmax (Skip-gram)
