@@ -8,7 +8,8 @@
 ## 1. K-means
 - '거리' 기반 clustering method
 - k개의 군집으로 data를 clustering함 ( 직접 k값을 정해줘야함 )
-- 알고리즘 </br>
+- 알고리즘 
+</br>
 <img src="https://media.springernature.com/original/springer-static/image/art%3A10.1007%2Fs00521-013-1437-4/MediaObjects/521_2013_1437_Figa_HTML.gif", width="380" /> </br>
 https://media.springernature.com/original/springer-static/image/art%3A10.1007%2Fs00521-013-1437-4/MediaObjects/521_2013_1437_Figa_HTML.gif
  step 1) k개의 임의의 centroid(clustering의 중심점)을 잡음.  </br>
