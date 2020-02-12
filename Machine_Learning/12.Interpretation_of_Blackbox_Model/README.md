@@ -1,5 +1,4 @@
 # [ Interpretation of Blackbox Model ]
-#### model의 복잡도 & model의 해석력 -> 어느 정도의 trade-off
 </br>
 
 #### blackbox model을 해석하는 여러 지표들
