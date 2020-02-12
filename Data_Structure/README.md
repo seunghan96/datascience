@@ -1,13 +1,13 @@
 # [ Data Structure (자료구조) & Algorithm (알고리즘) ]
 </br>
 
-## 1. 자료구조 이론
+### 1. Data Structure (자료구조)
 - Array, Queue, Stack, Linked List
 - time complexity
 - hash table
 - Tree / Heap </br> </br>
 
-## 2. 알고리즘 이론
+### 2. Algorithm (알고리즘)
 **(1) Basic**
 - recursive call
 - sorting (quick, merge, binary)
