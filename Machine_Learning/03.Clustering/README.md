@@ -29,8 +29,9 @@ https://stanford.edu/~cpiech/cs221/img/kmeansViz.png
 - parameter : </br>
    e(epsilon) : 특정 점으로 부터 떨어진 일정 거리 </br>
    m(minPts) : 하나의 cluster를 이루기 위한 최소한의 data 개수
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-4206-9cd2-f024cbe98df22.png" width="380" /> </br>
+</br>
 
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-4206-9cd2-f024cbe98df22.png" width="380" /> </br>
 https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-4206-9cd2-f024cbe98df22.png
 - 용어 : </br>
    core point : cluster의 대표(중심)이 되는 data </br>
