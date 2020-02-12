@@ -11,7 +11,6 @@
 - 알고리즘 
 </br>
 <img src="https://media.springernature.com/original/springer-static/image/art%3A10.1007%2Fs00521-013-1437-4/MediaObjects/521_2013_1437_Figa_HTML.gif", width="650" /> </br>
-https://media.springernature.com/original/springer-static/image/art%3A10.1007%2Fs00521-013-1437-4/MediaObjects/521_2013_1437_Figa_HTML.gif </br>
  step 1) k개의 임의의 centroid(clustering의 중심점)을 잡음.  </br>
  step 2) (k개를 제외한) 나머지 data들을, k개의 centroid 중 가장 가까이 위치한 centroid에 할당 (같은 cluster로 편성) </br>
  step 3) 생성된 k개의 cluster의 centroid를 update해준다 </br>
