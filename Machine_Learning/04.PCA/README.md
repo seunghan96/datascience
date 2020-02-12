@@ -16,4 +16,5 @@
 </br>
 <img src="https://liorpachter.files.wordpress.com/2014/05/pca_figure1.jpg" width="300" /> </br>
 
-#### PCA는 변수들 간의 선형(linear)조합(linear)으로 새로운 주성분 생성. 하지만 AutoEncoder는 비선형(non-linear)조합을 가능하게 하여, 더 뛰어난 차원 축소를 할 수 있음!
+#### PCA는 변수들 간의 선형(linear)조합(linear)으로 새로운 주성분 생성. </br>
+#### 이에 반해, AutoEncoder는 비선형(non-linear)조합을 가능하게 함! 보다 정보를 잘 압축할 수 있는 변수 
