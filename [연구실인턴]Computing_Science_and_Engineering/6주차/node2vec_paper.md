@@ -50,7 +50,7 @@ with these two assumption, the objective function can be simplified into </br> <
 ** negative sampling : https://github.com/seunghan96/datascience/blob/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering/4%EC%A3%BC%EC%B0%A8/Negative_Sampling.md </br>
 </br>
 
-## 3-1. Class search strategies
+## 3-1. Classic search strategies
 - sample neighbors of a source node as a form of local search
 
 ### [ two kind of similarities ]
