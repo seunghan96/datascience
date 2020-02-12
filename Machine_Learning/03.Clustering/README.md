@@ -32,7 +32,7 @@ https://stanford.edu/~cpiech/cs221/img/kmeansViz.png
    m(minPts) : 하나의 cluster를 이루기 위한 최소한의 data 개수 
 </br>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-4206-9cd2-f024cbe98df22.png" width="380" /> </br>
-https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-4206-9cd2-f024cbe98df22.png
+https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-4206-9cd2-f024cbe98df22.png </br>
 - 용어 : </br>
    core point : cluster의 대표(중심)이 되는 data </br>
    border point : minPts 조건을 충족 못해 core point는 안되지만, 다른 core point가 형성한 cluster내에 속하는 data </br>
