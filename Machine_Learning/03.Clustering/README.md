@@ -4,6 +4,7 @@
 - ex) K-means, DBSCAN, Agglomerative Clustering (Hierarchical)
 - metric : silhouette score (-1 ~ 1) </br>
  ( 동일한 cluster내의 data끼리는 가깝게, 다른 cluster의 data끼리는 멀게끔 하는 것이 좋은 clustering )
+</br>
 
 ## 1. K-means
 - '거리' 기반 clustering method
@@ -22,8 +23,19 @@ https://stanford.edu/~cpiech/cs221/img/kmeansViz.png
 </br>
 
 ## 2. DBSCAN
+- Density-Based Spatial Clustering of Applications with Noise
 - '밀도' 기반 clustering method
-- 
+- 특정 점(core point)를 기준으로 일정 거리(e) 내에, data가 x개 이상 있으면 같은 cluster로!
+- parameter : </br>
+   e(epsilon) : 특정 점으로 부터 떨어진 일정 거리 </br>
+   m(minPts) : 하나의 cluster를 이루기 위한 최소한의 data 개수
+- 용어 : </br>
+   core point : cluster의 대표(중심)이 되는 data </br>
+   border point : minPts 조건을 충족시키지 못해 core point는 안되지만, 다른 core point가 형성한 cluster내에 속하는 data </br>
+   noise point : 그 어떤 cluster에도 속하지 않는 data </br>
+</br>
+<img src="https://t1.daumcdn.net/cfile/tistory/99CC563359E057BA25" width="380" /> </br>
+https://t1.daumcdn.net/cfile/tistory/99CC563359E057BA25
 
 ## 3. Agglomerative Clustering
 
