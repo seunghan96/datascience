@@ -5,7 +5,8 @@
 - Bitamin(빅데이터 분석 동아리) : 2018.07~2019.02
 - DataScience Lab(연세대학교 데이터사이언스 학회) : 2019.01~          
 - SKT > AI 홈유닛 > Datascience 체험형 인턴 : 2019.07~2019.08
-- 연세대 계산과학공학과 (Computational Science and Engineering) 대학원 학부생 연구원 인턴( DataScience & Deep Learning ) : 2020.01 ~
+- 연세대 계산과학공학과 (Computational Science and Engineering) 대학원 </br>
+  학부생 연구원 인턴( DataScience & Deep Learning ) : 2020.01 ~
 - ( 사용 가능 언어 : Python, R, SQL )
 
 ## Contents
