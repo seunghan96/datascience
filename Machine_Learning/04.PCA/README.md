@@ -7,7 +7,7 @@
  https://miro.medium.com/max/462/1*QALwLkPJG45E7_DsOccdaw.png
  </br>
  
- ### dimension reduction
+ ### dimension reduction with PCA
 - 차원 축소(dimension reduction)의 방법 중 하나!
 - 분산이 가장 큰 축의 방향으로 사영(projection)시킴
 - 가장 분산이 큰 n개의 주성분으로 차원 축소
