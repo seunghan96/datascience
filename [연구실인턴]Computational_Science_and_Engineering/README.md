@@ -2,6 +2,8 @@
 https://sites.google.com/site/midasyonsei/ </br>
 ### Datascience & Deep learning 학부 연구생 인턴
 #### 연구 주제 : Network Embedding
+</br>
+</br>
 
 Paper 
 #### 1) DeepWalk : Online Learning of Social Representations
