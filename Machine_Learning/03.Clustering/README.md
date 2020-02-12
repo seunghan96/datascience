@@ -1,7 +1,7 @@
 # Clustering 요약
 - clustering : 비슷한 데이터끼리 묶기
 - unsupervised learning
-- ex) K-means, DBSCAN, Agglomerative Clustering (Hierarchical)
+- ex) K-means, DBSCAN, Hierarchical Clustering
 - metric : silhouette score (-1 ~ 1) </br>
  ( 동일한 cluster내의 data끼리는 가깝게, 다른 cluster의 data끼리는 멀게끔 하는 것이 좋은 clustering )
 </br>
@@ -21,6 +21,7 @@
 <img src="https://stanford.edu/~cpiech/cs221/img/kmeansViz.png", width="380" /> </br>
 https://stanford.edu/~cpiech/cs221/img/kmeansViz.png
 </br>
+</br>
 
 ## 2. DBSCAN
 - Density-Based Spatial Clustering of Applications with Noise
@@ -38,8 +39,18 @@ https://media.geeksforgeeks.org/wp-content/uploads/20190515220731/bacc6e04-0a54-
    noise point : 그 어떤 cluster에도 속하지 않는 data </br>
 </br>
 <img src="https://t1.daumcdn.net/cfile/tistory/99CC563359E057BA25" width="380" /> </br>
-https://t1.daumcdn.net/cfile/tistory/99CC563359E057BA25
+https://t1.daumcdn.net/cfile/tistory/99CC563359E057BA25 </br>
+- 장점 </br>
+ 1) robust to outliers
+ 2) 미리 cluster의 개수를 정할 필요가 없음
+</br>
+</br>
 
-## 3. Agglomerative Clustering
-
+## 3. Hierarchical Clustering
+- hierarchical(계층적) clustering이라고도 부름
+- 주로 dendogram으로 표현
+- distance threshold 조절을 통해 cluster의 개수를 (대략적으로) 정할 수 있음
+</br>
+<img src="https://ars.els-cdn.com/content/image/3-s2.0-B9780128008911000068-f06-08-9780128008911.jpg" width="550" /> </br>
+https://ars.els-cdn.com/content/image/3-s2.0-B9780128008911000068-f06-08-9780128008911.jpg
 ## [metric] Silhouette Score
