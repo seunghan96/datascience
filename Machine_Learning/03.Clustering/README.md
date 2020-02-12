@@ -57,4 +57,3 @@ https://t1.daumcdn.net/cfile/tistory/99CC563359E057BA25
 </br>
 <img src="https://ars.els-cdn.com/content/image/3-s2.0-B9780128008911000068-f06-08-9780128008911.jpg" width="550" /> </br>
 https://ars.els-cdn.com/content/image/3-s2.0-B9780128008911000068-f06-08-9780128008911.jpg
-## [metric] Silhouette Score
