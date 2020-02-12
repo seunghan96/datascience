@@ -1,7 +1,5 @@
-# [ 자료구조 & 알고리즘 ]
-
-
-인강 및 교재를 통해 학습하면서 코드를 짜봄
+# [ Data Structure (자료구조) & Algorithm (알고리즘) ]
+</br>
 
 ## 1. 자료구조 이론
 - Array, Queue, Stack, Linked List
