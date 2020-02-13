@@ -1,4 +1,4 @@
-# PCA (Principal Component Analysis)
+# [ PCA (Principal Component Analysis) 요약 ]
 - 주성분분석 ( data를 구성하는 주성분(Principal Component)를 찾아냄 )
 - 주성분? </br>
  **그 방향으로 데이터들의 분산이 가장 큰 방향 벡터**
