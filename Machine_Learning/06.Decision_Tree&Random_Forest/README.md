@@ -3,9 +3,9 @@
 ## 1. Decision Tree
 - 의사 결정 나무 : 질문에 맞게 data를 분류해나감 ( node & branch 구조 )
 - classification & regression 모두 가능
-- "어떠한 기준"을 가지고 data를 구분해나가야 잘 구분했다고 할 수 있는가? </br>
- ( "특정 값 이상/이하를 묻는 numeric 기준" & "특정 클래스에 속하는지 여부를 묻는 categorical 기준" 모두 가능 ) </br>
-<img src="https://miro.medium.com/max/564/0*ToYXqRes95eMvIKV.png" width="380" /> </br>
+- "어떠한 기준"을 가지고 data를 구분해나가야 잘 구분했다고 할 수 있는가? </br> 
+ ( "특정 값 이상/이하를 묻는 numeric 기준" & "특정 클래스에 속하는지 여부를 묻는 categorical 기준" 모두 가능 ) </br> </br>
+<img src="https://miro.medium.com/max/564/0*ToYXqRes95eMvIKV.png" width="330" /> </br>
 https://miro.medium.com/max/564/0*ToYXqRes95eMvIKV.png
 </br>
 
