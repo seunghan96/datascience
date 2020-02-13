@@ -5,7 +5,8 @@
 - classification & regression 모두 가능
 - "어떠한 기준"을 가지고 data를 구분해나가야 잘 구분했다고 할 수 있는가?
 </br>
-**Terminology** </br>
+
+**Terminology** 
 - root node : 뿌리 node, 가장 시작이 되는 node ( 모든 데이터가 포함되어있음 ) </br>
 - decision node : (특정 기준을 가지고) split이 이루어지는 node </br>
 - terminal node : 더 이상 split이 발생하지 않는 최하단의 node </br>
@@ -21,5 +22,11 @@
  ( 어떠한 질문을 던졌을때 classification / regression을 잘했다고 할 수 있가? )
 - 해결하고자 하는 문제가 classification이냐, regression이냐에 따라 다름!
 
-- ex) regression ( response variable : numerical ): RSS (Residual Sum of Squares, 잔차 제곱합) </br>
+- ex) regression ( response variable : numerical ): RSS (Residual Sum of Squares) </br>
       classification ( response variable : categorical ) : Gini Index(지니계수), Entropy,  χ2 -statistics
+</br>
+
+#### (1) Classification Tree 
+
+#### (2) Regression Tree
+
