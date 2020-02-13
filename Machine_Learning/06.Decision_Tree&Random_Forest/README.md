@@ -19,7 +19,7 @@
 
 **Split Criterion**
 - "split을 얼마나 잘 했는지 평가하는 지표!" </br>
- ( 어떠한 질문을 던졌을때 classification / regression을 잘했다고 할 수 있가? )
+ ( 어떠한 질문을 던져서 data를 node에서 split해 나갈 때, split을 잘했다고 할 수 있가? )
 - 해결하고자 하는 문제가 classification이냐, regression이냐에 따라 다름!
 
 - ex) regression ( response variable : numerical ): RSS (Residual Sum of Squares) </br>
