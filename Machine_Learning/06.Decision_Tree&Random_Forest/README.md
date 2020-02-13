@@ -54,13 +54,13 @@ https://miro.medium.com/max/1794/1*F_AmlAXtZRNP3lRupjX24A.jpeg </br>
 - split에 의해 얼마나 entropy를 줄였는지! (아래 예시 통해 확인)
 </br>
 
-<img src="https://steemitimages.com/640x0/http://www.grroups.com/uploads_media/1f21ba57ce751fd55c3a80e9090d01db%20%281%29.png" width="550" /> </br> 
+<img src="https://steemitimages.com/640x0/http://www.grroups.com/uploads_media/1f21ba57ce751fd55c3a80e9090d01db%20%281%29.png" width="470" /> </br> 
 https://steemitimages.com/640x0/http://www.grroups.com/uploads_media/1f21ba57ce751fd55c3a80e9090d01db%20%281%29.png
 </br>
 위의 예시처럼, 각각의 node별로 entropy값을 구할 수 있다. 30개의 data가 parent node에 있고, 어떠한 기준에 의해 이 데이터가 각각 17개,13개로 두 개의 child node로 split되었다. 이때, parent node(30개)의 entropy는 0.996, child node1(17개)의 entropy는 0.78, child node2(13개)의 entropy는 0.39이다. 나누어진 두 개의 child node들의 weighted(data 개수에 대해) average entropy는 0.615이다. 즉, 이번 split을 통해 0.996-0.615=0.381만큼의 entropy 값을 줄인 것이다. 이 값(0.381)이 바로 information gain이다.
 </br>
 
-#### overfitting problem
+### overfitting problem
 위 impurity measures ( (1) Gini Index와 (2) Entropy & Information )를 보면 알 수 있 듯, 모든 데이터가 "완벽히 분류"될 때 까지 계속 split을 해나간다면 최상의 결과, 즉 가장 낮은 impurity값을 가질 수 있다. 하지만, 이는 overfitting 문제를 가져올 수 있다. 그렇기 떄문에 반드시 split이 많이 이루어진 fully grown tree가 최상이라고 할 수 없다. 이를 해결하기 위한 방법에는 여러 가지가 있다.
 
 
