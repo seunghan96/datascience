@@ -13,6 +13,7 @@ https://miro.medium.com/max/564/0*ToYXqRes95eMvIKV.png
 - root node : 뿌리 node, 가장 시작이 되는 node ( 모든 데이터가 포함되어있음 ) </br>
 - decision node : (특정 기준을 가지고) split이 이루어지는 node </br>
 - terminal node : 더 이상 split이 발생하지 않는 최하단의 node </br>
+</br>
 <img src="https://miro.medium.com/max/688/1*bcLAJfWN2GpVQNTVOCrrvw.png" width="550" /> </br>
 https://miro.medium.com/max/688/1*bcLAJfWN2GpVQNTVOCrrvw.png
 </br>
@@ -66,6 +67,7 @@ https://steemitimages.com/640x0/http://www.grroups.com/uploads_media/1f21ba57ce7
 
 ## (3) **Avoid Overfitting**
 tree가 지나치게 커지는 것(즉, 너무 많은 split을 하는 것)을 방지하기 위한 방법으로 크게 (1)pre-pruning(사전 가지치기)와 (2)post-pruning(사후 가지치기)가 있다. 말 그대로 pre-pruning은 나무의 성장이 어느 정도 수준에 도달하면 더 이상 split을 하지 않는 것을 말하고, post-pruning은 일단 나무를 끝까지 다 만들고 난 이후 일정 기준으로 가지치기를 하는 것을 말한다. 그 중에서 (1) pre-pruning에 대해 다룰 것이다.
+</br>
 <img src="https://www.isip.piconepress.com/courses/msstate/ece_8463/lectures/current/lecture_27/lecture_27_07_00.gif" width="450" /> </br>
 https://www.isip.piconepress.com/courses/msstate/ece_8463/lectures/current/lecture_27/lecture_27_07_00.gif
 
