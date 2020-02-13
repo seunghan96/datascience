@@ -9,6 +9,7 @@
 - 연세대 계산과학공학과 (Computational Science and Engineering) 대학원 </br>
   학부생 연구원 인턴( Deep Learning > Network Embedding ) : 2020.01 ~
 - ( 사용 가능 언어 : Python, R, SQL )
+- 네이버 블로그 : https://blog.naver.com/seunghan96
 
 ## Contents
 #### 01. Machine Learning
