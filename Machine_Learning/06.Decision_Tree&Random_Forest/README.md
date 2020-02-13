@@ -63,7 +63,7 @@ http://www.grroups.com/uploads_media/1f21ba57ce751fd55c3a80e9090d01db%20%281%29.
 
 ### overfitting problem
 위 impurity measures ( (1) Gini Index와 (2) Entropy & Information )를 보면 알 수 있 듯, 모든 데이터가 "완벽히 분류"될 때 까지 계속 split을 해나간다면 최상의 결과, 즉 가장 낮은 impurity값을 가질 수 있다. 하지만, 이는 overfitting 문제를 가져올 수 있다. 그렇기 떄문에 반드시 split이 많이 이루어진 fully grown tree가 최상이라고 할 수 없다. 이를 해결하기 위한 방법에는 여러 가지가 있다.
-
+</br> </br>
 
 ## (3) **Avoid Overfitting**
 tree가 지나치게 커지는 것(즉, 너무 많은 split을 하는 것)을 방지하기 위한 방법으로 크게 (1)pre-pruning(사전 가지치기)와 (2)post-pruning(사후 가지치기)가 있다. 말 그대로 pre-pruning은 나무의 성장이 어느 정도 수준에 도달하면 더 이상 split을 하지 않는 것을 말하고, post-pruning은 일단 나무를 끝까지 다 만들고 난 이후 일정 기준으로 가지치기를 하는 것을 말한다. 그 중에서 (1) pre-pruning에 대해 다룰 것이다.
