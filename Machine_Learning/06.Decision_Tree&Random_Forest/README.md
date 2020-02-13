@@ -66,10 +66,12 @@ https://steemitimages.com/640x0/http://www.grroups.com/uploads_media/1f21ba57ce7
 
 ## (3) **Avoid Overfitting**
 tree가 지나치게 커지는 것(즉, 너무 많은 split을 하는 것)을 방지하기 위한 방법으로 크게 (1)pre-pruning(사전 가지치기)와 (2)post-pruning(사후 가지치기)가 있다. 말 그대로 pre-pruning은 나무의 성장이 어느 정도 수준에 도달하면 더 이상 split을 하지 않는 것을 말하고, post-pruning은 일단 나무를 끝까지 다 만들고 난 이후 일정 기준으로 가지치기를 하는 것을 말한다. 그 중에서 (1) pre-pruning에 대해 다룰 것이다.
+<img src="https://www.isip.piconepress.com/courses/msstate/ece_8463/lectures/current/lecture_27/lecture_27_07_00.gif" width="450" /> </br>
+https://www.isip.piconepress.com/courses/msstate/ece_8463/lectures/current/lecture_27/lecture_27_07_00.gif
 
 #### [prepruning] cost complexity pruning
 단어 cost complexity에서 알 수 있듯 complexity(복잡도 / 복잡하다=split이 많이 이루어진다=node수가 많아진다)에 cost(=penalty)를 부여하는 개념이다. 이는 node의 개수에 따라 cost를 부과하는 방식으로 tree의 과도한 성장을 막을 수 있다. 수식을 보면 다음과 같다.</br>
-<a href="https://www.codecogs.com/eqnedit.php?latex=CC(T)&space;=&space;Err(T)&space;&plus;&space;\alpha&space;L(T)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?CC(T)&space;=&space;Err(T)&space;&plus;&space;\alpha&space;L(T)" title="CC(T) = Err(T) + \alpha L(T)" /></a> </br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=CC(T)&space;=&space;Err(T)&space;&plus;&space;\alpha&space;L(T)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?CC(T)&space;=&space;Err(T)&space;&plus;&space;\alpha&space;L(T)" title="CC(T) = Err(T) + \alpha L(T)" /></a> </br> </br>
 - CC(T) = cost complexity of tree
 - Err(T) = proportion of misclassified data in the training dataset
 - L(T) = number of leaves(=nodes)
