@@ -10,6 +10,8 @@
 - root node : 뿌리 node, 가장 시작이 되는 node ( 모든 데이터가 포함되어있음 ) </br>
 - decision node : (특정 기준을 가지고) split이 이루어지는 node </br>
 - terminal node : 더 이상 split이 발생하지 않는 최하단의 node </br>
+<img src="https://miro.medium.com/max/688/1*bcLAJfWN2GpVQNTVOCrrvw.png" width="550" /> </br>
+https://miro.medium.com/max/688/1*bcLAJfWN2GpVQNTVOCrrvw.png
 </br>
 
 **Classification & Regression**
@@ -26,7 +28,8 @@
       classification ( response variable : categorical ) : Gini Index(지니계수), Entropy,  χ2 -statistics
 </br>
 
-#### (1) Classification Tree 
+### (1) Classification Tree 
+- 
 
-#### (2) Regression Tree
+### (2) Regression Tree
 
