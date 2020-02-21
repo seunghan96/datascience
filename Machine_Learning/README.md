@@ -15,7 +15,7 @@
 - [학회 발표자료] : "DataCleansing_Visualization_이승한.pdf" </br> </br> 
 
 ### 2. Logistic Regression
-- 보다 자세한 내용은 아래 자료 참고 https://github.com/seunghan96/datascience/tree/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputing_Science_and_Engineering
+- 보다 자세한 내용은 아래 자료 참고 https://github.com/seunghan96/datascience/tree/master/%5B%EC%97%B0%EA%B5%AC%EC%8B%A4%EC%9D%B8%ED%84%B4%5DComputational_Science_and_Engineering
 - Binary Classifion (Logistic Regression) & Multi-class Classification (OVR, OVO) </br> </br> 
 
 ### 3. Clustering
