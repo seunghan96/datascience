@@ -89,7 +89,7 @@ Encoder의 구조
 ## 5. Encoder의 Multi-head Attention
 
 ### (1) Multi-head Self Attention
-#### a) Self Attention
+### a) Self Attention
 기존의 seq2seq에서 Attention의 Q,K,V
 - 1 ) Q : t 시점의 Decoder cell에서의 Hidden state
 - 2 ) K : 모든 시점의 Encoder cell에서의 Hidden states
@@ -115,14 +115,14 @@ https://wikidocs.net/images/page/31379/transformer10.png
 기존의 seq2seq의 attention은, 서로 다른 Encoder & Decoder 문장 사이의 연관성을 찾아냈기
 때문에, 위 예시와 같은 정보는 찾아낼 수 없었다.
 
-#### b) Q,K,V vector
+### b) Q,K,V vector
 입력받은 단어 vector로 바로 Self-Attention? NO!
 
 각 단어 vector로부터 Q,K,V벡터를 먼저 얻어낸다 ( 차원 축소가 이루어짐 )
 - input 되는 단어 vector : d_model 차원 ( 논문에서 d_model = 512 )
 - 차원 축소된 Q,K,V vector : d_model / num_heads 차원 ( 논문에서 num_heads = 8, 즉 64차원 )
 
-#### c) scaled-dot product attention
+### c) scaled-dot product attention
 기존과(attention mechanism 참고) 유사하다. 구해낸 Q,K,V벡터를 사용하여 다음과 같은 순서로 cnotext vector를
 구해낸다 ( Attention Score -> Attention Distribution -> Attention Value(Context Vector) )
 </br>
@@ -138,26 +138,36 @@ https://wikidocs.net/images/page/31379/transformer14_final.PNG
 </br>
 위 그림에서는 'I'라는 단어의 Q 벡터에 대해 연산이 이루어졌다. 하지만, 행렬 연산으로 일괄적으로 처리하면, 이렇게 모든 Q벡터마다 일일히 따로 계산할 필요가 없다.
 
-#### d) 행렬 연산으로 일괄 처리
+### d) 행렬 연산으로 일괄 처리
 
 [ STEP 1 ] Q, K, V행렬 구하기
 실제로는 벡터 간의 연산이 아니라, 행렬로 한번에 연산이 이루어지기 때문에 Q,K,V 행렬을 우선 구해야 한다.
-https://wikidocs.net/images/page/31379/transformer12.PNG
+</br>
+<img src="https://wikidocs.net/images/page/31379/transformer12.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/31379
 </br>
 
 [ STEP 2 ] 행렬 연산을 통해 Attention Score 구하기
 Q 행렬을 K 행렬의 전치행렬과 곱해준다
-https://wikidocs.net/images/page/31379/transformer15.PNG
+</br>
+<img src="https://wikidocs.net/images/page/31379/transformer15.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/31379
+</br>
 
-[ STEP 3] Attention Value 구하기
+[ STEP 3 ] Attention Value 구하기
 Attention Score에 Softmax함수를 사용하고, 이에 V 행렬을 곱한다
-https://wikidocs.net/images/page/31379/transformer16.PNG
-
+</br>
+<img src="https://wikidocs.net/images/page/31379/transformer16.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/31379
+</br>
 
 위 연산을 거친 결과는, 정리하자면 다음과 같은 수식으로 표현할 수 있다.
+</br>
+</br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=Attention(Q,K,V)&space;=&space;softmax(\frac{QK^T}{\sqrt{d_k}})V" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Attention(Q,K,V)&space;=&space;softmax(\frac{QK^T}{\sqrt{d_k}})V" title="Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V" /></a>
+</br>
 
-#### 행렬의 크기
+### 행렬의 크기
 입력 문장의 길이 : seq_len </br>
 문장 행렬의 크기 : (seq_len, d_model) -> 이 문장 행렬을 통해 Q,K,V 행렬을 구하낟
 
@@ -173,5 +183,6 @@ V 벡터의 크기 : d_v
 - Wv 행렬 : (d_model,d_v)
 </br>
 ( 논문에서 d_k와 d_v는 'd_model / num_head'로 동일하다 )
+</br>
 </br>
 " 결과적으로, Attention Value 행렬(a)의 크기는 (seq_len, d_v)이다! "
