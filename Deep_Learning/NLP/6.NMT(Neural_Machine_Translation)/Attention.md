@@ -93,3 +93,12 @@ attention mechanism은 위의 두 개의 값 외에도, 다음과 같은 값을 
 </br>
 
 #### STEP 1) Attention Score 구하기
+<img src="https://wikidocs.net/images/page/22893/dotproductattention2_final.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/22893
+
+Attention score : 현재 Decoder 시점 t에서 단어를 예측하기 위해, Encoder의 모든 hidden state(=h(i))가 Decoder의 현 시점 hidden state(=s(t))와 얼마나 유사한지 나타내는 score ( dot product (내적)을 통해 계산한다 )
+
+<img src="https://wikidocs.net/images/page/22893/i%EB%B2%88%EC%A7%B8%EC%96%B4%ED%85%90%EC%85%98%EC%8A%A4%EC%BD%94%EC%96%B4_final.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/22893
+
+e(t) : s(t)와, Encoder의 모든 hidden state의 attention score 모음
