@@ -137,28 +137,34 @@ https://wikidocs.net/images/page/31379/transformer10.png
 https://wikidocs.net/images/page/31379/transformer14_final.PNG
 </br>
 위 그림에서는 'I'라는 단어의 Q 벡터에 대해 연산이 이루어졌다. 하지만, 행렬 연산으로 일괄적으로 처리하면, 이렇게 모든 Q벡터마다 일일히 따로 계산할 필요가 없다.
+</br>
+</br>
 
 ### d) 행렬 연산으로 일괄 처리
 
-[ STEP 1 ] Q, K, V행렬 구하기
+[ STEP 1 ] Q, K, V행렬 구하기 </br>
 실제로는 벡터 간의 연산이 아니라, 행렬로 한번에 연산이 이루어지기 때문에 Q,K,V 행렬을 우선 구해야 한다.
 </br>
+
 <img src="https://wikidocs.net/images/page/31379/transformer12.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 
-[ STEP 2 ] 행렬 연산을 통해 Attention Score 구하기
+[ STEP 2 ] 행렬 연산을 통해 Attention Score 구하기 </br>
 Q 행렬을 K 행렬의 전치행렬과 곱해준다
 </br>
+
 <img src="https://wikidocs.net/images/page/31379/transformer15.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 
-[ STEP 3 ] Attention Value 구하기
+[ STEP 3 ] Attention Value 구하기 </br>
 Attention Score에 Softmax함수를 사용하고, 이에 V 행렬을 곱한다
 </br>
+
 <img src="https://wikidocs.net/images/page/31379/transformer16.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379
+</br>
 </br>
 
 위 연산을 거친 결과는, 정리하자면 다음과 같은 수식으로 표현할 수 있다.
