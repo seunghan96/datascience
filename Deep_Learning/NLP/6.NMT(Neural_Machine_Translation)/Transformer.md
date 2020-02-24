@@ -72,7 +72,7 @@ Positional Encoding의 값은 다음과 같다
 Encoder의 구조는 다음과 같이 생겼다
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer9.png" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer9.png" width="180" /> </br>
 https://wikidocs.net/images/page/31379/transformer9.png
 </br>
 
