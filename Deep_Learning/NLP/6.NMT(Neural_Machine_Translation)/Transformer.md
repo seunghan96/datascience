@@ -1,6 +1,6 @@
-[ Transformer ]
+# [ Transformer ]
 
-# 1. Introduction
+## 1. Introduction
 - Transformer은 기존의 seq2seq과 다르게 , cell 안에 RNN,LSTM,GRU 등의 방식을 사용하지 않는다 </br>
   ( Attention을 RNN의 보정 용도가 아니라, 아예 Attention만으로 Encoder & Decoder 생성 )
 - Encoder & Decoder의 구조는 유지한다
@@ -17,7 +17,7 @@ https://wikidocs.net/images/page/31379/transformer4_final_final_final.PNG
 </br>
 </br>
 
-# 2. Transformer의 hyperparameter
+## 2. Transformer의 hyperparameter
 transformer에 대해 구체적으로 설명하기 이전에, 어떠한 hyperparameter들이 있는지 살펴보자
 
 hyperparameter
@@ -26,9 +26,8 @@ hyperparameter
 - 3 ) num_heads : Transformer에서는 병렬로 Attention을 수행하는데, 이때의 병렬 개수
 - 4 ) d_ff : Transformer 내부에 존재하는 Feed Forward 신경망의 은닉층 크기
 </br>
-</br>
 
-# 3. Positional Encoding
+## 3. Positional Encoding
 RNN이 자연어 처리에서 많이 사용된 이유는, 단어를 "순차적으로 입력"받아 처리하는 RNN의 특징 때문이다! 
 이것이 각 단어의 위치 정보를 알려줬기 때문이다. 하지만, Transformer은 RNN을 사용하지 않는다. 
 대신에, Positional Encoding이라는 방법을 통해 단어의 위치(순서)를 파악한다. 
