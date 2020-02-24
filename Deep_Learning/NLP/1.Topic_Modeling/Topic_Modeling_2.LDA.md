@@ -40,12 +40,14 @@ Topic Modeling은 말 그대로 글 속의 숨겨진 "주제"를 통계적인 �
 다음과 같이 apple, banana, dog, cute, book 등의 단어로 구성된 두 개의 문서가 있다고 해보자. 여기서, 우리는 첫 번째 문서 (doc1)의 세 번째 
 단어인 apple을 update하고자 한다. ( 해당 단어 외의 나머지 단어들은 모두 topic이 '옳게' 할당되어 있다고 가정한다 )
 </br>
+
 <img src="https://wikidocs.net/images/page/30708/lda1.PNG" width="400" /> </br>
 https://wikidocs.net/images/page/30708/lda1.PNG
 
 기준 1)
 - doc1의 (apple을 제외한) 4개의 단어는 각각 2개의 주제 A,B가 50:50으로 분포되어 있다. 따라서 apple은 Topic A,B에 모두 속할 가능성이 있다
 </br>
+
 기준 2)
 - 'apple'이란 단어를 포함한 모든 문서(doc1,doc2) 각각에 어떤 Topic이 있는지를 확인해본다.
 - 그 결과, doc1에서도 100% (1/1)로 topic B에 할당되어 있고, doc2에서도 100% (2/2)로 topic B에 할당되어 있는 것을 확인할 수 있다. 
