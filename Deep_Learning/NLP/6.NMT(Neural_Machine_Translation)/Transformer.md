@@ -57,6 +57,7 @@ https://wikidocs.net/images/page/31379/
 <img src="https://wikidocs.net/images/page/31379/transformer6_final.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379/
 </br>
+</br>
 
 Positional Encoding의 값은 다음과 같다
 </br>
