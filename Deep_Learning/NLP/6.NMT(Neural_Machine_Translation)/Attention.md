@@ -128,3 +128,29 @@ Decoder시점 t에서의 Attention Weight의 모음값인 Attention Distribution
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=a^t&space;=&space;softmax(e^t)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a^t&space;=&space;softmax(e^t)" title="a^t = softmax(e^t)" /></a>
 </br>
+</br>
+
+### STEP 3) Attention Value 구하기
+- 각 encoder의 attention wiehgt와 hidden state를 가중합한다 (다음 그림 참조)
+</br>
+<img src="https://wikidocs.net/images/page/22893/dotproductattention4_final.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/22893
+</br>
+</br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=a_t&space;=&space;\sum_{i=1}^{N}&space;a_i^th_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a_t&space;=&space;\sum_{i=1}^{N}&space;a_i^th_i" title="a_t = \sum_{i=1}^{N} a_i^th_i" /></a>
+위 attention value (a(t))는 encoder의 문맥을 담고 있으므로, context vector라고 부른다! </br>
+( seq2seq의 context vector : encoder의 마지막 hidden state )
+</br>
+</br>
+
+### STEP 4) Attention Value와 Decoder의 t시점의 hidden state와 연결
+- 앞 단계 3)에서 구한 a(t)를 s(t)와 concatenate하여 하나의 벡터로 만든다 ( = v(t) )
+
+이 v(t)는, Decoder가 매 hidden state에서 예측할때 입력으로 들어가게 된다.
+<img src="https://wikidocs.net/images/page/22893/dotproductattention5_final_final.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/22893/
+
+</br>
+</br>
+
+
