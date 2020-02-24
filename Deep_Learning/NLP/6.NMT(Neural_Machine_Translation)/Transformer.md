@@ -261,7 +261,8 @@ weight matrix (Wq,Wk,Wv)의 값이 8개 Attention Head마다 모두 다르게 �
 https://wikidocs.net/images/page/31379
 </br>
 </br>
-행렬의 크기
+
+행렬의 크기</br>
 - 위 그림에서의 x는 앞에서 구한 Multi-head Attention의 크기와 같은 행렬이다
 - W1의 shape : (d_model, d_ff)
 - W2의 shape : (d_ff, d_model)
@@ -271,11 +272,12 @@ https://wikidocs.net/images/page/31379
 아래 그림을 보면, 지금까지의 연산이 어떻게 이루어지는지 쉽게 이해할 수 있다.
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer20.PNG" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer20.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
+</br>
 
-## 7. Rewidual Connection & Layer Normalization
+## 7. Residual Connection & Layer Normalization
 아래 그림과 같이, Add와 Normalization의 과정이 추가된다.
 </br>
 </br>
@@ -284,5 +286,5 @@ https://wikidocs.net/images/page/31379
 ResNet을 공부한 적이 있다면 잘 알 것이다. 입력 x와, 이를 input으로 나온 어떠한 함수값 F(x)를 더한 함수 H(x)를 의미한다. ( 여기서 F(x)는 Transformer의 sub layer가 된다 )
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer22.PNG" width="250" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer22.PNG" width="220" /> </br>
 https://wikidocs.net/images/page/31379
