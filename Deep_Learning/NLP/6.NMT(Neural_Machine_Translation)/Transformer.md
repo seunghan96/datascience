@@ -229,7 +229,7 @@ d_model에서, d_model / num_heads으로 차원축소가 이루어진다! </br>
 ( 연결된 attention head 행렬의 크기 : (seq_len, d_model) )
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer18_final.PNG" width="460" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer18_final.PNG" width="400" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 </br>
@@ -237,7 +237,7 @@ https://wikidocs.net/images/page/31379
 이렇게 연결된 attention head들에, 가중치 행렬(Wo)를 곱해서 Multi-head Attention Matrix를 생성한다
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer19.PNG" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer19.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 </br>
@@ -253,11 +253,10 @@ weight matrix (Wq,Wk,Wv)의 값이 8개 Attention Head마다 모두 다르게 �
 - Encoder와 Decoder에서 모두 사용된다
 - 연산 방식은 FC (Fully Connected)과 동일하다
 </br>
-</br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=FFNN(x)&space;=&space;MAX(0,&space;xW_1&space;&plus;&space;b1)W_2&space;&plus;&space;b_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?FFNN(x)&space;=&space;MAX(0,&space;xW_1&space;&plus;&space;b1)W_2&space;&plus;&space;b_2" title="FFNN(x) = MAX(0, xW_1 + b1)W_2 + b_2" /></a>
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/positionwiseffnn.PNG" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/positionwiseffnn.PNG" width="230" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 </br>
@@ -274,6 +273,7 @@ https://wikidocs.net/images/page/31379
 </br>
 <img src="https://wikidocs.net/images/page/31379/transformer20.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/31379
+</br>
 </br>
 </br>
 
