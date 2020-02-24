@@ -30,6 +30,7 @@ A가 mxn의 행렬일 때, 다음과 같이 3개의 행렬 곱으로 분해하�
 - 마찬가지로, U 행렬과 V행렬도 t열까지만 남기고 지운다
 - 여기서 't'는, 우리가 찾고자 하는 Topic의 수를 반영한 hyperparameter이다 </br>
   ( t를 크게 잡으면 기존의 행렬 A로부터 다양한 의미를 가져갈 수 있지만, t를 작게 잡아야 노이즈를 제거할 수 있다 )
+</br>
 
 ## 4) LSA with python
 
@@ -169,8 +170,9 @@ news_df['clean_doc'][1]
 'yeah expect people read actually accept hard atheism need little leap faith jimmy your logic runs steam sorry pity sorry that have these feelings denial about faith need well just pretend that will happily ever after anyway maybe start newsgroup atheist hard bummin much forget your flintstone chewables bake timmons'
 ```
 
-- 불용어 (stop words)처리하기 </br>
-'the','a','he','she'등 어느 문서에나 당연히 등장하여, 주제를 결정하는 데에 영향을 미친다고 보기 어려운 용어들을 제거해준다!
+- 불용어 (stop words) 처리 </br>
+'the','a','she'등. 어디에나 자주 등장하여 주제를 결정하는 데에 영향을 미친다고 보기 어려운 용어들을 제거해준다! </br>
+불용어 처리를 위해, 문서를 tokenize해준다 ( = 단어 단위로 split한다 )
 ```
 from nltk.corpus import stopwords
 
@@ -178,3 +180,44 @@ stop_words = stopwords.words('english') # 1) 불용어 설정
 tokenized_doc = news_df['clean_doc'].apply(lambda x : x.split()) # 2) tokenize
 tokenized_doc = tokenized_doc.apply(lambda x : [item for item in x if item not in stop_words])
 ```
+
+##### (3) TF-IDF matrix
+- 지금까지, 불용어를 제거하기 위해 tokenize했었다
+- 하지만 TFIDF-Vectorizer는 (token화 되지 않은) text data를 입력으로 받기 때문에, 다시 역토큰화(Detokenization)을 해줘야 한다
+
+```
+detokenized_doc = []
+
+for i in range(len(news_df)):
+    t = ' '.join(tokenized_doc[i]) # token화된 단어들을 다시 연결시켜줌
+    detokenized_doc.append(t)
+
+news_df['clean_doc'] = detokenized_doc
+news_df['clean_doc'][1]
+
+
+'yeah expect people read actually accept hard atheism need little leap faith jimmy logic runs steam sorry pity sorry feelings denial faith need well pretend happily ever anyway maybe start newsgroup atheist hard bummin much forget flintstone chewables bake timmons'
+```
+( token화된 단어들이 다시 연결(detokenizeed)된 것을 확인할 수 있다 )
+
+- 이렇게 연결된 단어들을 이제 TFIDF Vectorizer에 집어 넣는다.
+- hyperparameter :  </br>
+  max_features = 1000 ( 상위 1000개 단어만 보존한다 ) </br>
+  max_df = 0.5 ( 전체 문서의 50% 이상에서 등장하는 단어들은 제외한다 ) </br>
+  smooth_idf = True ( smoothing term! document frequency에 +1을 해준다 )
+
+```
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer(stop_words='english',
+                            max_features=1000, 
+                            max_df = 0.5,
+                             smooth_idf=True)
+
+X = vectorizer.fit_transform(news_df['clean_doc'])
+X.shape
+
+(11314, 1000)
+```
+- (row) 11314개의 document
+- (col) 상위 1000개
