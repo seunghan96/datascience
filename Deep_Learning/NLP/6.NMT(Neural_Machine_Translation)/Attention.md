@@ -23,6 +23,7 @@ vanishing gradient 문제를 해결할 수 있는지 살펴 보자
 - 전체 문장을 다시 참고할 때, 모든 단어를 동일한 비율로 참고하지 않는다! 
 
 **"해당 시점에서 예측해야 할 단어와 연관이 있는 입력 단어에 보다 집중한다"**
+</br>
 
 그러기 위해, 우선 key-value의 dictionary 형식부터 알아보자. </br>
 아래 보이는 바와 같이, 각각의 key에는 이에 해당하는 value를 가지고 있다.
@@ -45,4 +46,12 @@ dict.values()
 dict_values(['Transformer', 'BERT'])
 ```
 
-이것이 어떻게 Attention mechanism에 적용되는지, 다음 그림을 통해 확인해보자 </br>
+이것이 어떻게 Attention mechanism에 적용되는지, 다음 그림을 통해 확인해보자 
+</br>
+<img src="https://wikidocs.net/images/page/22893/%EC%BF%BC%EB%A6%AC.PNG" width="550" /> </br>
+https://wikidocs.net/images/page/22893 </br>
+
+Attention에서 계산되는 attention value은 다음과 같은 방식으로 계산된다. </br>
+step 1) 주어진 Query에 대해서, 모든 key와의 유사도를 구한다 </br>
+step 2) 계산한 유사도와, (key와 매핑되어있는) value를 함께 고려하여 값을 계산한다  </br>
+step 3) value값을 모두 더해서 return한다 (weighted sum)
