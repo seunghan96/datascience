@@ -144,6 +144,7 @@ dataset.target_names
  'talk.politics.misc',
  'talk.religion.misc']
 ```
+</br>
 
 ### (2) data preprocessing
 - 1) 영어가 아닌 모든 글자들은 공백으로 대체
@@ -181,6 +182,7 @@ stop_words = stopwords.words('english') # 1) 불용어 설정
 tokenized_doc = news_df['clean_doc'].apply(lambda x : x.split()) # 2) tokenize
 tokenized_doc = tokenized_doc.apply(lambda x : [item for item in x if item not in stop_words])
 ```
+</br>
 
 ### (3) TF-IDF matrix
 - 지금까지, 불용어를 제거하기 위해 tokenize했었다
@@ -222,6 +224,7 @@ X.shape
 ```
 - (row) 11314개의 document
 - (col) 상위 1000개
+</br>
 
 ### (4) Topic Modeling
 - 위에서 만들어진 TF-IDF 행렬을, Truncated SVD를 이용하여 분해한다
@@ -249,6 +252,7 @@ len(terms)
 
 1000
 ```
+</br>
 
 ### (5) Result
 - 각각의 (20개의) 주제가 어떠한 단어들로 구성되었는지 확인할 수 있다
