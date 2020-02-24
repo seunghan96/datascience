@@ -45,24 +45,25 @@ A, A.shape
 ```
 
 ### a. Full SVD
-'''python
+```python
 U, s, VT = np.linalg.svd(A, full_matrices = True)
 U.shape, s.shape, VT.shape
 
 
 ((4, 4), (4,), (9, 9))
-'''
+```
 
-'''python
+```python
 U.round(2)
 
 array([[-0.24,  0.75,  0.  , -0.62],
        [-0.51,  0.44, -0.  ,  0.74],
        [-0.83, -0.49, -0.  , -0.27],
        [-0.  , -0.  ,  1.  ,  0.  ]])
-'''
+```
 
-'''python
+```python
 s.round(2)
 
 array([2.69, 2.05, 1.73, 0.77])
+```
