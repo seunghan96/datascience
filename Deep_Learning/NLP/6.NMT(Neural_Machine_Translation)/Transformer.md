@@ -66,7 +66,7 @@ Positional Encoding의 값은 다음과 같다
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=PE_(pos,2i&plus;1)&space;=&space;cos(pos/10000^{2i/d_{model}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?PE_(pos,2i&plus;1)&space;=&space;cos(pos/10000^{2i/d_{model}})" title="PE_(pos,2i+1) = cos(pos/10000^{2i/d_{model}})" /></a>
 </br>
-
+</br>
 
 ## 4. Encoder
 Encoder의 구조는 다음과 같이 생겼다
