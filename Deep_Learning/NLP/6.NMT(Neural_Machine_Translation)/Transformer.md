@@ -8,8 +8,9 @@
   ( 논문에서는 Encoder와 Decoder을 각각 6개 사용함 )
 
 <img src="https://wikidocs.net/images/page/31379/transformer2.PNG" width="270" />
-https://wikidocs.net/images/page/31379/transformer2.PNG </br>
+https://wikidocs.net/images/page/31379/ </br>
 ( 논문에서는 6개의 encoder-decoder 구조를 사용 )
+</br>
 </br>
 
 <img src="https://wikidocs.net/images/page/31379/transformer4_final_final_final.PNG" width="550" /> </br>
@@ -22,7 +23,7 @@ https://wikidocs.net/images/page/31379/</br>
 ## 2. Transformer의 hyperparameter
 transformer에 대해 구체적으로 설명하기 이전에, 어떠한 hyperparameter들이 있는지 살펴보자
 
-hyperparameter
+**hyperparameters**
 - 1 ) d_model : Encoder & Decoder에서의 정해진 입력 & 출력의 크기 (즉, Embedding Vector의 크기 또한 d_model )
 - 2 ) num_layers : Encoder & Decoder의 구성 층 수
 - 3 ) num_heads : Transformer에서는 병렬로 Attention을 수행하는데, 이때의 병렬 개수
@@ -37,25 +38,28 @@ RNN이 자연어 처리에서 많이 사용된 이유는, 단어를 "순차적�
 </br>
 </br>
 <img src="https://wikidocs.net/images/page/31379/transformer5_final_final.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/31379/transformer5_final_final.PNG
+https://wikidocs.net/images/page/31379/
 </br>
 </br>
 
 임베딩 벡터가 Encoder의 입력으로 사용되기 전에, 다음과 같이 Positional Encoding값이 더해진다
 </br>
+</br>
 <img src="https://wikidocs.net/images/page/31379/transformer6_final.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/31379/transformer6_final.PNG
+https://wikidocs.net/images/page/31379/
 </br>
 </br>
 
 위 그림처럼 "벡터" 단위로 더해지는게 아니라, 사실은 Embedding Vector가 모여서 만들어진 "문장 벡터 행렬"에
 "Positional Encoding 행렬"이 이루어진다
 </br>
+</br>
 <img src="https://wikidocs.net/images/page/31379/transformer6_final.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/31379/transformer6_final.PNG
+https://wikidocs.net/images/page/31379/
 </br>
 
 Positional Encoding의 값은 다음과 같다
+</br>
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=PE_(pos,2i)&space;=&space;sin(pos/10000^{2i/d_{model}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?PE_(pos,2i)&space;=&space;sin(pos/10000^{2i/d_{model}})" title="PE_(pos,2i) = sin(pos/10000^{2i/d_{model}})" /></a>
 </br>
