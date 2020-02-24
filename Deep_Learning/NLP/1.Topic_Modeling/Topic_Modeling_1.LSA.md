@@ -142,3 +142,39 @@ dataset.target_names
  'talk.politics.misc',
  'talk.religion.misc']
 ```
+
+#### (2) data preprocessing
+- 1) 영어가 아닌 모든 글자들은 공백으로 대체
+- 2) 네 글자 이상의 단어들만 남기고 지우기
+- 3) 모두 소문자로
+```
+news_df = pd.DataFrame({'document':documents})
+
+news_df['clean_doc'] = news_df['document'].str.replace("[^a-zA-Z]", " ")
+news_df['clean_doc'] = news_df['clean_doc'].apply(lambda x: ' '.join([w for w in x.split() if len(w)>3]))
+news_df['clean_doc'] = news_df['clean_doc'].apply(lambda x: x.lower())
+```
+
+- BEFORE (전처리 이전)
+```
+news_df['document'][1]
+
+"\n\n\n\n\n\n\nYeah, do you expect people to read the FAQ, etc. and actually accept hard\natheism?  No, you need a little leap of faith, Jimmy.  Your logic runs out\nof steam!\n\n\n\n\n\n\n\nJim,\n\nSorry I can't pity you, Jim.  And I'm sorry that you have these feelings of\ndenial about the faith you need to get by.  Oh well, just pretend that it will\nall end happily ever after anyway.  Maybe if you start a new newsgroup,\nalt.atheist.hard, you won't be bummin' so much?\n\n\n\n\n\n\nBye-Bye, Big Jim.  Don't forget your Flintstone's Chewables!  :) \n--\nBake Timmons, III"
+```
+
+- AFTER (전처리 이후)
+```
+news_df['clean_doc'][1]
+
+'yeah expect people read actually accept hard atheism need little leap faith jimmy your logic runs steam sorry pity sorry that have these feelings denial about faith need well just pretend that will happily ever after anyway maybe start newsgroup atheist hard bummin much forget your flintstone chewables bake timmons'
+```
+
+- 불용어 (stop words)처리하기 </br>
+'the','a','he','she'등 어느 문서에나 당연히 등장하여, 주제를 결정하는 데에 영향을 미친다고 보기 어려운 용어들을 제거해준다!
+```
+from nltk.corpus import stopwords
+
+stop_words = stopwords.words('english') # 1) 불용어 설정
+tokenized_doc = news_df['clean_doc'].apply(lambda x : x.split()) # 2) tokenize
+tokenized_doc = tokenized_doc.apply(lambda x : [item for item in x if item not in stop_words])
+```
