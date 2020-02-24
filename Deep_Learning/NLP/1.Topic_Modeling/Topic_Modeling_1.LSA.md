@@ -102,19 +102,25 @@ from sklearn.datasets import fetch_20newsgroups
 dataset = fetch_20newsgroups(shuffle=True,random_state=1, remove=('headers','footers','quotes'))
 documents = dataset.data
 ```
+
+- 총 11,314개의 문서가 있음을 확인할 수 있다
 ```python
 len(documents)
 
 11314
 ```
 
+- 그 중 첫 번째 문서 확인
 ```
 documents[1]
 
 "\n\n\n\n\n\n\nYeah, do you expect people to read the FAQ, etc. and actually accept hard\natheism?  No, you need a little leap of faith, Jimmy.  Your logic runs out\nof steam!\n\n\n\n\n\n\n\nJim,\n\nSorry I can't pity you, Jim.  And I'm sorry that you have these feelings of\ndenial about the faith you need to get by.  Oh well, just pretend that it will\nall end happily ever after anyway.  Maybe if you start a new newsgroup,\nalt.atheist.hard, you won't be bummin' so much?\n\n\n\n\n\n\nBye-Bye, Big Jim.  Don't forget your Flintstone's Chewables!  :) \n--\nBake Timmons, III"
 ```
 
+- 문서의 주제들
+```
 dataset.target_names
+
 ['alt.atheism',
  'comp.graphics',
  'comp.os.ms-windows.misc',
@@ -135,3 +141,4 @@ dataset.target_names
  'talk.politics.mideast',
  'talk.politics.misc',
  'talk.religion.misc']
+```
