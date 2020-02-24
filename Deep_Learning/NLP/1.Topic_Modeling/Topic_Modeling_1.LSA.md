@@ -280,6 +280,7 @@ Topic 18 : [('time', 0.597), ('problem', 0.155), ('file', 0.15), ('think', 0.128
 Topic 19 : [('file', 0.442), ('need', 0.266), ('card', 0.184), ('files', 0.175), ('right', 0.154)]
 Topic 20 : [('problem', 0.33), ('file', 0.277), ('thanks', 0.236), ('used', 0.192), ('space', 0.132)]
 ```
+</br>
 
 ## 6) LSA의 장.단점
 장점
