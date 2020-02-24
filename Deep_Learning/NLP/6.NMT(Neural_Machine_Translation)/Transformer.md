@@ -83,3 +83,95 @@ Encoder의 구조
   2 ) Position wise Feed Forward Neural Network
   
 ( Self Attention과 Position wise Feed Forward neural network이 무엇인지는 뒤에서 알아보자 )
+</br>
+</br>
+
+## 5. Encoder의 Multi-head Attention
+
+### (1) Multi-head Self Attention
+#### a) Self Attention
+기존의 seq2seq에서 Attention의 Q,K,V
+- 1 ) Q : t 시점의 Decoder cell에서의 Hidden state
+- 2 ) K : 모든 시점의 Encoder cell에서의 Hidden states
+- 3 ) V : 모든 시점의 Encoder cell에서의 Hidden states
+
+t 시점의 Decoder state가 아니라, 전체 시점으로 일반화하면
+- 1 ) Q : 모든 시점의 Decoder cell에서의 Hidden state
+- 2 ) K : 모든 시점의 Encoder cell에서의 Hidden states
+- 3 ) V : 모든 시점의 Encoder cell에서의 Hidden states
+
+BUT, Transformer의 Self-Attention의 Q,K,V는 모두 같다!
+- Q,K,V : 입력 문장의 모든 단어 벡터들
+
+Self Attention을 사용하면 좋은 이유? ( 아래 Example 참고 )
+- 아래 그림을 보면, 의미 상 it은 animal에 해당한다.
+- 기계는 이를 '입력 문장 내의 단어들끼리의 유사도'를 통해 찾아낸다!
+- (it은 animal, street 중 animal과 더 높은 유사도를 보인다)
+
+Example 
+</br>
+https://wikidocs.net/images/page/31379/transformer10.png
+
+기존의 seq2seq의 attention은, 서로 다른 Encoder & Decoder 문장 사이의 연관성을 찾아냈기
+때문에, 위 예시와 같은 정보는 찾아낼 수 없었다.
+
+#### b) Q,K,V vector
+입력받은 단어 vector로 바로 Self-Attention? NO!
+
+각 단어 vector로부터 Q,K,V벡터를 먼저 얻어낸다 ( 차원 축소가 이루어짐 )
+- input 되는 단어 vector : d_model 차원 ( 논문에서 d_model = 512 )
+- 차원 축소된 Q,K,V vector : d_model / num_heads 차원 ( 논문에서 num_heads = 8, 즉 64차원 )
+
+#### c) scaled-dot product attention
+기존과(attention mechanism 참고) 유사하다. 구해낸 Q,K,V벡터를 사용하여 다음과 같은 순서로 cnotext vector를
+구해낸다 ( Attention Score -> Attention Distribution -> Attention Value(Context Vector) )
+</br>
+
+차이점 : 단순 내적이 아니라, "특정 값으로 나눠준 attention 함수"를 사용한다
+</br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=score(q,k)&space;=&space;q\cdot&space;k&space;/&space;\sqrt{n}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?score(q,k)&space;=&space;q\cdot&space;k&space;/&space;\sqrt{n}" title="score(q,k) = q\cdot k / \sqrt{n}" /></a>
+</br>
+</br>
+아래 그림을 통해 쉽게 이해할 수 있다.
+</br>
+https://wikidocs.net/images/page/31379/transformer14_final.PNG
+</br>
+위 그림에서는 'I'라는 단어의 Q 벡터에 대해 연산이 이루어졌다. 하지만, 행렬 연산으로 일괄적으로 처리하면, 이렇게 모든 Q벡터마다 일일히 따로 계산할 필요가 없다.
+
+#### d) 행렬 연산으로 일괄 처리
+
+[ STEP 1 ] Q, K, V행렬 구하기
+실제로는 벡터 간의 연산이 아니라, 행렬로 한번에 연산이 이루어지기 때문에 Q,K,V 행렬을 우선 구해야 한다.
+https://wikidocs.net/images/page/31379/transformer12.PNG
+</br>
+
+[ STEP 2 ] 행렬 연산을 통해 Attention Score 구하기
+Q 행렬을 K 행렬의 전치행렬과 곱해준다
+https://wikidocs.net/images/page/31379/transformer15.PNG
+
+[ STEP 3] Attention Value 구하기
+Attention Score에 Softmax함수를 사용하고, 이에 V 행렬을 곱한다
+https://wikidocs.net/images/page/31379/transformer16.PNG
+
+
+위 연산을 거친 결과는, 정리하자면 다음과 같은 수식으로 표현할 수 있다.
+<a href="https://www.codecogs.com/eqnedit.php?latex=Attention(Q,K,V)&space;=&space;softmax(\frac{QK^T}{\sqrt{d_k}})V" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Attention(Q,K,V)&space;=&space;softmax(\frac{QK^T}{\sqrt{d_k}})V" title="Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V" /></a>
+
+#### 행렬의 크기
+입력 문장의 길이 : seq_len </br>
+문장 행렬의 크기 : (seq_len, d_model) -> 이 문장 행렬을 통해 Q,K,V 행렬을 구하낟
+
+Q & K 벡터의 크기 : d_k  </br>
+V 벡터의 크기 : d_v
+- Q 행렬 : (seq_len, d_k)
+- K 행렬 : (seq_len, d_k)
+- V 행렬 : (seq_len, d_v)
+
+이에 따라, 자동으로 weight 행렬의 크기도 정해진다
+- Wq 행렬 : (d_model,d_k)
+- Wk 행렬 : (d_model,d_k)
+- Wv 행렬 : (d_model,d_v)
+</br>
+( 논문에서 d_k와 d_v는 'd_model / num_head'로 동일하다 )
+</br>
+" 결과적으로, Attention Value 행렬(a)의 크기는 (seq_len, d_v)이다! "
