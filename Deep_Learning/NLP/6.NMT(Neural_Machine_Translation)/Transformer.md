@@ -7,12 +7,12 @@
 - Encoder & Decoder라는 단위가 1개가 아닌 N개를 사용할 수 있다 </br>
   ( 논문에서는 Encoder와 Decoder을 각각 6개 사용함 )
 
-<img src="https://wikidocs.net/images/page/31379/transformer2.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/31379/transformer2.PNG
+<img src="https://wikidocs.net/images/page/31379/transformer2.PNG" width="270" /> </br>
+https://wikidocs.net/images/page/31379/transformer2.PNG </br>
 ( 논문에서는 6개의 encoder-decoder 구조를 사용 )
 
 <img src="https://wikidocs.net/images/page/31379/transformer4_final_final_final.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/31379/transformer4_final_final_final.PNG
+https://wikidocs.net/images/page/31379/</br>
 이 그림을 보면, Encoder로부터 정보를 받아 Decoder가 출력 결과를 만드는 구조는 동일하다. 다만 RNN은 사용하지 않음을 확인할 수 있다
 </br>
 </br>
@@ -33,14 +33,17 @@ RNN이 자연어 처리에서 많이 사용된 이유는, 단어를 "순차적�
 대신에, Positional Encoding이라는 방법을 통해 단어의 위치(순서)를 파악한다. 
 단어의 위치 정보를 얻기 위해, 각 단어를 임베딩 한 이후, 이에 위치 정보를 더한 다음 모델에 입력한다.
 </br>
+</br>
 <img src="https://wikidocs.net/images/page/31379/transformer5_final_final.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379/transformer5_final_final.PNG
+</br>
 </br>
 
 임베딩 벡터가 Encoder의 입력으로 사용되기 전에, 다음과 같이 Positional Encoding값이 더해진다
 </br>
 <img src="https://wikidocs.net/images/page/31379/transformer6_final.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379/transformer6_final.PNG
+</br>
 </br>
 
 위 그림처럼 "벡터" 단위로 더해지는게 아니라, 사실은 Embedding Vector가 모여서 만들어진 "문장 벡터 행렬"에
