@@ -175,6 +175,7 @@ pyLDAvis.display(vis)
 </br>
 https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png
 </br>
+
 - 좌측의 원들은 '각각의 topic'을 나타낸다
 - 원들 간의 거리는, 'topic들 간의 유사한 정도'를 나타낸다 </br>
   ( 겹치는 원 = 유사한 topic )
