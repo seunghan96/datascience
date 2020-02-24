@@ -62,7 +62,6 @@ Attention에서 계산되는 attention value은 다음과 같은 방식으로 �
 - Q : t시점의 decoder cell에서의 hidden state
 - K & V : 모든 시점의 encoder에서의 hidden state
 </br>
-</br>
 
 ## 3. Dot-Product Attention
 - 여러 attention 기법 중, 가장 간단한 기법이다
@@ -84,11 +83,13 @@ seq2seq에서, Decoder가 출력값을 낼 때 다음과 같은 2가지 값을 i
 
 attention mechanism은 위의 두 개의 값 외에도, 다음과 같은 값을 추가로 필요로 한다
 - 3 ) Attention Value (at)
+</br>
 
 ### Attention Value를 구하는 4가지 Step
 - step 1) Attention Score 구하기
 - step 2) Softmax를 통해 Attention Distribution 구하기
 - step 3) Attention Value 구하기
 - step 4) Attention Value와 Decoder의 t시점의 hidden state과의 연결
+</br>
 
 #### STEP 1) Attention Score 구하기
