@@ -153,4 +153,6 @@ https://wikidocs.net/images/page/22893/
 </br>
 </br>
 
+## 5. Summary
+위와 같이 attention value a(t)를 활용하여 v(t)를 구했다. 이것이 decoder의 입력으로 들어가서 최종적인 예측이 이루어지게 된다. 이러한 방식의 attention mechanism은 seq2seq의 단점(문장이 길어질 경우의 vanishing gradient problem)을 보완하여, 보다 나은 성능을 보이는 것으로 알려져 있다.
 
