@@ -53,11 +53,12 @@ https://wikidocs.net/images/page/30708/lda1.PNG
 - 'apple'이란 단어를 포함한 모든 문서(doc1,doc2) 각각에 어떤 Topic이 있는지를 확인해본다.
 - 그 결과, doc1에서도 100% (1/1)로 topic B에 할당되어 있고, doc2에서도 100% (2/2)로 topic B에 할당되어 있는 것을 확인할 수 있다. 
 - 이를 통해, doc1의 세 번째 단어인 apple을 'topic B'에 할당한다. 이러한 과정을 반복하여, 모든 단어들이 topic을 update해나간다.
-
+</br>
 
 ## 4) LSA vs LDA
 - LSA : DTM을 차원축소하여, 축소 차원에서 근접 단어들을 Topic으로 묶음
 - LDA : 특정 단어가 특정 topic에 존재할 확률과, 문서에 특정 topic이 존재할 확률을 결합확률로 추정하여 Topic을 추출
+</br>
 
 ## 5) 실습 ( fetch_20newsgroups )
 - 불용어처리까지는 'LSA'에서 실습한 과정과 동일하다
@@ -77,6 +78,7 @@ news_df['clean_doc'] = news_df['clean_doc'].apply(lambda x: x.lower())
 stop_words = stopwords.words('english')
 tokenized_doc = news_df['clean_doc'].apply(lambda x : x.split())
 ```
+</br>
 
 ### (1) 정수 인코딩 & 단어 집합 생성
 - 각 단어에 정수를 인코딩
@@ -169,7 +171,7 @@ vis = pyLDAvis.gensim.prepare(ldamodel, corpus, dictionary)
 pyLDAvis.display(vis)
 ```
 </br>
-<img src="https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png" width="750" /> </br>
+<img src="https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png" width="820" /> </br>
 </br>
 https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png
 </br>
@@ -177,6 +179,7 @@ https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png
 - 원들 간의 거리는, 'topic들 간의 유사한 정도'를 나타낸다 </br>
   ( 겹치는 원 = 유사한 topic )
 - 우측에는 해당 topic을 구성하는 term과 그 비율을 나타낸다
+</br>
 </br>
 
 ### (4) 문서 별 Topic 확인하기
@@ -221,6 +224,3 @@ Topic_table = Topic_table.reset_index()
 Topic_table.columns = ['Document #', 'TOP Topic','Top Topic %','Each Topic %']
 ```
 
-```
-Topic_table.head()
-```
