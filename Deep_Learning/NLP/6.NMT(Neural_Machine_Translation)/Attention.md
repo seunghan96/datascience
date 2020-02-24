@@ -104,6 +104,7 @@ https://wikidocs.net/images/page/22893
 <img src="https://wikidocs.net/images/page/22893/i%EB%B2%88%EC%A7%B8%EC%96%B4%ED%85%90%EC%85%98%EC%8A%A4%EC%BD%94%EC%96%B4_final.PNG" width="300" /> </br>
 https://wikidocs.net/images/page/22893
 </br>
+</br>
 
 e(t) : s(t)와, Encoder의 모든 hidden state의 attention score 모음
 </br>
