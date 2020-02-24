@@ -214,11 +214,12 @@ V 벡터의 크기 : d_v
 num_heads란 무엇일까? 왜 d_model의 차원으로 attention으로 하지 않고, 차원을 축소한 뒤 attention을 시행할까?
 </br>
 </br>
-### for "병렬 처리"
+#### for "병렬 처리"
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer17.PNG" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer17.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
+
 d_model에서, d_model / num_heads으로 차원축소가 이루어진다! </br>
 ( num_heads개 병렬 Attention을 동시에 수행! )
 
@@ -226,7 +227,7 @@ d_model에서, d_model / num_heads으로 차원축소가 이루어진다! </br>
 전부 concatenate한다. </br>
 ( 연결된 attention head 행렬의 크기 : (seq_len, d_model) )
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer18_final.PNG" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer18_final.PNG" width="50" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 </br>
