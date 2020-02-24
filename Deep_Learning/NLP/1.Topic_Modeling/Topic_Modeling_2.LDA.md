@@ -115,6 +115,7 @@ corpus[5]
  (229, 1),
  (230, 1)]
 ```
+</br>
 
 ### (2) train LDA
 - 기존의 뉴스 데이터가 20개의 카테고리를 가졌기 때문에, topic의 개수를 20개로 지정하여 모델을 학습시킨다
@@ -157,6 +158,7 @@ for topic in topics:
 (18, '0.009*"bike" + 0.006*"cars" + 0.005*"miles" + 0.005*"tobacco"')
 (19, '0.007*"power" + 0.006*"used" + 0.006*"good" + 0.006*"price"')
 ```
+</br>
 
 ### (3) Visualization
 ```
@@ -167,7 +169,58 @@ vis = pyLDAvis.gensim.prepare(ldamodel, corpus, dictionary)
 pyLDAvis.display(vis)
 ```
 </br>
-<img src="https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png" width="550" /> </br>
+<img src="https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png" width="750" /> </br>
 </br>
 https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png
-https://www.machinelearningplus.com/wp-content/uploads/2018/03/pyLDAvis.png
+</br>
+- 좌측의 원들은 '각각의 topic'을 나타낸다
+- 원들 간의 거리는, 'topic들 간의 유사한 정도'를 나타낸다 </br>
+  ( 겹치는 원 = 유사한 topic )
+- 우측에는 해당 topic을 구성하는 term과 그 비율을 나타낸다
+</br>
+
+### (4) 문서 별 Topic 확인하기
+```
+for i, topic_list in enumerate(ldamodel[corpus]):
+    if i==5:
+        break
+    print(i, '번 째 문서의 TOPIC 비율 : ', topic_list)
+    
+
+0 번 째 문서의 TOPIC 비율 :  [(10, 0.29285672), (11, 0.16073646), (16, 0.4919449), (18, 0.041558668)]
+1 번 째 문서의 TOPIC 비율 :  [(4, 0.025609754), (7, 0.25793052), (13, 0.026179668), (16, 0.45710588), (17, 0.21488152)]
+2 번 째 문서의 TOPIC 비율 :  [(10, 0.27561134), (16, 0.57688445), (18, 0.1337945)]
+3 번 째 문서의 TOPIC 비율 :  [(2, 0.07093574), (3, 0.08743375), (8, 0.016644193), (9, 0.31374454), (10, 0.08422507), (14, 0.018146532), (16, 0.39916867)]
+4 번 째 문서의 TOPIC 비율 :  [(7, 0.6907137), (16, 0.27595297)]
+```
+
+- 보기 쉽게 table로 만들어서 표현
+```
+
+def make_topic_table(ldamodel, corpus, texts):
+    topic_table = pd.DataFrame()
+    
+    for i, topic_list in enumerate(ldamodel[corpus]):
+        # 각 document에서 비중이 높은 Topic 순으로 정렬
+        doc = topic_list[0] if ldamodel.per_word_topics else topic_list
+        doc = sorted(doc, key=lambda x:(x[1]), reverse=True)
+        
+        for j, (topic_num, prop_topic) in enumerate(doc):
+            if j==0: # 가장 비중 높은 TOPIC
+                topic_table = topic_table.append(pd.Series([int(topic_num), round(prop_topic,4), topic_list]),
+                                                ignore_index=True)
+            else:
+                break
+    
+    return(topic_table)
+```
+
+```
+Topic_table = make_topic_table(ldamodel, corpus, tokenized_doc)
+Topic_table = Topic_table.reset_index()
+Topic_table.columns = ['Document #', 'TOP Topic','Top Topic %','Each Topic %']
+```
+
+```
+Topic_table.head()
+```
