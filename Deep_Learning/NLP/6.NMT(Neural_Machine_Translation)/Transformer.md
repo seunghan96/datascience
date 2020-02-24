@@ -66,3 +66,20 @@ Positional Encoding의 값은 다음과 같다
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=PE_(pos,2i&plus;1)&space;=&space;cos(pos/10000^{2i/d_{model}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?PE_(pos,2i&plus;1)&space;=&space;cos(pos/10000^{2i/d_{model}})" title="PE_(pos,2i+1) = cos(pos/10000^{2i/d_{model}})" /></a>
 </br>
+
+
+## 4. Encoder
+Encoder의 구조는 다음과 같이 생겼다
+</br>
+</br>
+<img src="https://wikidocs.net/images/page/31379/transformer9.png" width="550" /> </br>
+https://wikidocs.net/images/page/31379/transformer9.png
+</br>
+
+Encoder의 구조
+- n개의 encoder를 가진다 ( = num_layers )
+- Encoder를 하나의 '층'으로 생각해보자. 하나의 Encoder는 총 2개의 sub layer로 구성된다 </br>
+  1 ) Self Attention
+  2 ) Position wise Feed Forward Neural Network
+</br>
+Self Attention과 Position wise Feed Forward neural network이 무엇인지는 뒤에서 알아보자.
