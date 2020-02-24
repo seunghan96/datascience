@@ -94,26 +94,32 @@ Encoder의 구조
 - 1 ) Q : t 시점의 Decoder cell에서의 Hidden state
 - 2 ) K : 모든 시점의 Encoder cell에서의 Hidden states
 - 3 ) V : 모든 시점의 Encoder cell에서의 Hidden states
+</br>
 
 t 시점의 Decoder state가 아니라, 전체 시점으로 일반화하면
 - 1 ) Q : 모든 시점의 Decoder cell에서의 Hidden state
 - 2 ) K : 모든 시점의 Encoder cell에서의 Hidden states
 - 3 ) V : 모든 시점의 Encoder cell에서의 Hidden states
+</br>
 
 BUT, Transformer의 Self-Attention의 Q,K,V는 모두 같다!
 - Q,K,V : 입력 문장의 모든 단어 벡터들
+</br>
 
 Self Attention을 사용하면 좋은 이유? ( 아래 Example 참고 )
 - 아래 그림을 보면, 의미 상 it은 animal에 해당한다.
 - 기계는 이를 '입력 문장 내의 단어들끼리의 유사도'를 통해 찾아낸다!
 - (it은 animal, street 중 animal과 더 높은 유사도를 보인다)
-
-Example 
 </br>
-https://wikidocs.net/images/page/31379/transformer10.png
+
+#### Example 
+</br>
+<img src="https://wikidocs.net/images/page/31379/transformer10.png" width="550" /> </br>
+https://wikidocs.net/images/page/31379
 
 기존의 seq2seq의 attention은, 서로 다른 Encoder & Decoder 문장 사이의 연관성을 찾아냈기
 때문에, 위 예시와 같은 정보는 찾아낼 수 없었다.
+</br>
 </br>
 
 ### b) Q,K,V vector
@@ -131,13 +137,16 @@ https://wikidocs.net/images/page/31379/transformer10.png
 
 차이점 : 단순 내적이 아니라, "특정 값으로 나눠준 attention 함수"를 사용한다
 </br>
+</br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=score(q,k)&space;=&space;q\cdot&space;k&space;/&space;\sqrt{n}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?score(q,k)&space;=&space;q\cdot&space;k&space;/&space;\sqrt{n}" title="score(q,k) = q\cdot k / \sqrt{n}" /></a>
 </br>
 </br>
 아래 그림을 통해 쉽게 이해할 수 있다.
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer14_final.PNG" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer14_final.PNG" width="700" /> 
+</br>
 https://wikidocs.net/images/page/31379
+</br>
 </br>
 위 그림에서는 'I'라는 단어의 Q 벡터에 대해 연산이 이루어졌다. 하지만, 행렬 연산으로 일괄적으로 처리하면, 이렇게 모든 Q벡터마다 일일히 따로 계산할 필요가 없다.
 </br>
@@ -153,6 +162,7 @@ https://wikidocs.net/images/page/31379
 <img src="https://wikidocs.net/images/page/31379/transformer12.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
+</br>
 
 **[ STEP 2 ] 행렬 연산을 통해 Attention Score 구하기** </br>
 Q 행렬을 K 행렬의 전치행렬과 곱해준다
@@ -160,6 +170,7 @@ Q 행렬을 K 행렬의 전치행렬과 곱해준다
 
 <img src="https://wikidocs.net/images/page/31379/transformer15.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379
+</br>
 </br>
 
 **[ STEP 3 ] Attention Value 구하기** </br>
@@ -176,7 +187,7 @@ https://wikidocs.net/images/page/31379
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=Attention(Q,K,V)&space;=&space;softmax(\frac{QK^T}{\sqrt{d_k}})V" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Attention(Q,K,V)&space;=&space;softmax(\frac{QK^T}{\sqrt{d_k}})V" title="Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V" /></a>
 </br>
-
+</br>
 ### 행렬의 크기
 입력 문장의 길이 : seq_len </br>
 문장 행렬의 크기 : (seq_len, d_model) -> 이 문장 행렬을 통해 Q,K,V 행렬을 구하낟
