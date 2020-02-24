@@ -219,21 +219,24 @@ num_heads란 무엇일까? 왜 d_model의 차원으로 attention으로 하지 �
 <img src="https://wikidocs.net/images/page/31379/transformer17.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
+</br>
 
 d_model에서, d_model / num_heads으로 차원축소가 이루어진다! </br>
 ( num_heads개 병렬 Attention을 동시에 수행! )
 
-병렬 처리를 하는 이유는, 보다 다양한 특징을 capture하기 위해서이다. 이와 같이 병렬 attention을 모두 시행한 이후, attention head들을
-전부 concatenate한다. </br>
+병렬 처리를 하는 이유는, 보다 다양한 특징을 capture하기 위해서이다. </br>
+이와 같이 병렬 attention을 모두 시행한 이후, attention head들을 전부 concatenate한다. </br>
 ( 연결된 attention head 행렬의 크기 : (seq_len, d_model) )
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer18_final.PNG" width="50" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer18_final.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/31379
 </br>
 </br>
 이렇게 연결된 attention head들에, 가중치 행렬(Wo)를 곱해서 Multi-head Attention Matrix를 생성한다
+</br>
 <img src="https://wikidocs.net/images/page/31379/transformer19.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379
+</br>
 </br>
 
 #### Multi-head Attention에 등장한 weight matrix 정리
