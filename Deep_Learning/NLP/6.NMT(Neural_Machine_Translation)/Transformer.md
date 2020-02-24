@@ -81,4 +81,5 @@ Encoder의 구조
 - Encoder를 하나의 '층'으로 생각해보자. 하나의 Encoder는 총 2개의 sub layer로 구성된다 </br>
   1 ) Self Attention </br>
   2 ) Position wise Feed Forward Neural Network
+  
 ( Self Attention과 Position wise Feed Forward neural network이 무엇인지는 뒤에서 알아보자 )
