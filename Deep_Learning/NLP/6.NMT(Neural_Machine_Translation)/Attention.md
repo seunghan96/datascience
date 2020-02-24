@@ -68,7 +68,7 @@ Attention에서 계산되는 attention value은 다음과 같은 방식으로 �
 
 다음 그림을 통해 dot-product attention을 이해해보자
 </br>
-<img src="https://wikidocs.net/images/page/22893/dotproductattention1_final.PNG" width="700" /> </br>
+<img src="https://wikidocs.net/images/page/22893/dotproductattention1_final.PNG" width="500" /> </br>
 https://wikidocs.net/images/page/22893
 </br>
 위 그림에서 Decoder의 세 번째 LSTM셀은, 출력 단어를 예측하기 위해 Encoder의 모든 input 단어들을 다시 참고한다. 
@@ -117,7 +117,7 @@ e(t) : s(t)와, Encoder의 모든 hidden state의 attention score 모음
 ### STEP 2) Softmax 통해 Attention Distribution 구하기
 - attention score의 모음값인 e(t)에 Softmax 함수를 적용한 결과! 이를 "Attention Distribution"이라 한다
 - softmax함수를 통해 나온 값은 Attention Weight라고 한다
-<img src="https://wikidocs.net/images/page/22893/dotproductattention3_final.PNG" width="700" /> </br>
+<img src="https://wikidocs.net/images/page/22893/dotproductattention3_final.PNG" width="650" /> </br>
 https://wikidocs.net/images/page/22893
 
 위 예시에서는, I, am, a, student의 Attention Weight는 각각 0.1, 0.4, 0.1, 0.4이다. 현 시점(Decoder의 세 번째 cell)에서는, input 단어들을 다음과 같은 weight로 참고하여 output을 낸다.
