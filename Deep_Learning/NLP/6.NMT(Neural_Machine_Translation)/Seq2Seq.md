@@ -17,18 +17,22 @@ https://wikidocs.net/images/
 
 ### (1) Encoder
 - 각각의 단어는 embedding을 통해 vector로 바뀐 뒤에 Encoder의 입력으로 들어가게 된다.
+</br>
 <img src="https://wikidocs.net/images/page/24996/%EC%9E%84%EB%B2%A0%EB%94%A9%EB%B2%A1%ED%84%B0.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/24996/%EC%9E%84%EB%B2%A0%EB%94%A9%EB%B2%A1%ED%84%B0.PNG
+https://wikidocs.net/images/page/24996
 
-- 하나의 cell은 각각의 시점에 2개의 입력을 받는다 </br
-  1) t-1 시점에서의 hidden state (은닉 상태)
-  2) t(현재) 시점에서의 input vector
+- 하나의 cell은 각각의 시점에 2개의 입력을 받는다 </br>
+  1 ) t-1 시점에서의 hidden state (은닉 상태)
+  2 ) t(현재) 시점에서의 input vector
+</br>
 
 ### (2) Decoder
 - Encoder의 마지막 cell의 hidden state인 'context vector'를 첫 번째  hidden state의 값으로 사용한ㄷ
 - Decoder의 cell이 출력하는 output은, Dense Layer를 거치고 마지막으로 Softmax 함수를 통해 "각 단어들이 나올 확률"을 예측값으로 반환한다
-<img src="https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG" width="550" /> </br>
-https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG
+</br>
+
+<img src="https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG" width="350" /> </br>
+https://wikidocs.net/images/page/24996
 
 #### Teacher Forcing (교사 강요 )
 - 개념 : train 시, decoder의 입력으로 이전 decoder cell의 output이 아닌 "실제 값"을 입력값으로 하는 방법
