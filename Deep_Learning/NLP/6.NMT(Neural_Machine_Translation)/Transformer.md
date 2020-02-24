@@ -72,7 +72,7 @@ Positional Encoding의 값은 다음과 같다
 Encoder의 구조는 다음과 같이 생겼다
 </br>
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer9.png" width="180" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer9.png" width="240" /> </br>
 https://wikidocs.net/images/page/31379/transformer9.png
 </br>
 
@@ -110,7 +110,6 @@ Self Attention을 사용하면 좋은 이유? ( 아래 Example 참고 )
 - 아래 그림을 보면, 의미 상 it은 animal에 해당한다.
 - 기계는 이를 '입력 문장 내의 단어들끼리의 유사도'를 통해 찾아낸다!
 - (it은 animal, street 중 animal과 더 높은 유사도를 보인다)
-</br>
 
 #### Example 
 </br>
