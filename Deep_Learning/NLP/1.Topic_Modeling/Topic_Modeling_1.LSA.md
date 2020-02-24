@@ -94,6 +94,7 @@ S_
 array([[2.68731789, 0.        ],
        [0.        , 2.04508425]])
 ```
+</br>
 
 ## 5. 실습 (fetch_20newsgroups)
 ### (1) import dataset
@@ -221,3 +222,71 @@ X.shape
 ```
 - (row) 11314개의 document
 - (col) 상위 1000개
+
+### (4) Topic Modeling
+- 위에서 만들어진 TF-IDF 행렬을, Truncated SVD를 이용하여 분해한다
+- 원래 기존 news data가 20개의 news category를 가지고 있었기 때문에, 20개의 topic을 가졌다고 가정하고 Topic Modeling을 한다 </br>
+  ( topic의 숫자는 hyperparameter 'n_components'로 지정해준다 )
+  
+```
+from sklearn.decomposition import TruncatedSVD
+
+svd_model = TruncatedSVD(n_components=20, algorithm='randomized',
+                        n_iter=100,random_state=122)
+svd_model.fit(X)
+```
+
+- 20개의 topic이, 1000개의 단어의 일정 비율의 합으로 이루어진 것을 확인할 수 있다!
+```
+svd_model.components_.shape
+
+(20, 1000)
+```
+
+```
+terms = vectorizer.get_feature_names()
+len(terms)
+
+1000
+```
+
+### (5) Result
+- 각각의 (20개의) 주제가 어떠한 단어들로 구성되었는지 확인할 수 있다
+```
+def get_topics(components, feature_names, n=5):
+    for idx, topic in enumerate(components):
+        print("Topic %d :" %(idx+1), [(feature_names[i], topic[i].round(3)) for i in topic.argsort()[:-n-1:-1]])
+
+get_topics(svd_model.components_, terms)
+
+Topic 1 : [('like', 0.214), ('know', 0.2), ('people', 0.193), ('think', 0.178), ('good', 0.151)]
+Topic 2 : [('thanks', 0.329), ('windows', 0.291), ('card', 0.181), ('drive', 0.175), ('mail', 0.151)]
+Topic 3 : [('game', 0.371), ('team', 0.324), ('year', 0.282), ('games', 0.254), ('season', 0.184)]
+Topic 4 : [('drive', 0.533), ('scsi', 0.202), ('hard', 0.156), ('disk', 0.156), ('card', 0.14)]
+Topic 5 : [('windows', 0.404), ('file', 0.254), ('window', 0.18), ('files', 0.161), ('program', 0.139)]
+Topic 6 : [('chip', 0.161), ('government', 0.16), ('mail', 0.156), ('space', 0.151), ('information', 0.136)]
+Topic 7 : [('like', 0.671), ('bike', 0.142), ('chip', 0.112), ('know', 0.111), ('sounds', 0.104)]
+Topic 8 : [('card', 0.466), ('video', 0.221), ('sale', 0.213), ('monitor', 0.155), ('offer', 0.146)]
+Topic 9 : [('know', 0.46), ('card', 0.336), ('chip', 0.176), ('government', 0.152), ('video', 0.144)]
+Topic 10 : [('good', 0.428), ('know', 0.23), ('time', 0.188), ('bike', 0.114), ('jesus', 0.09)]
+Topic 11 : [('think', 0.785), ('chip', 0.109), ('good', 0.106), ('thanks', 0.091), ('clipper', 0.079)]
+Topic 12 : [('thanks', 0.368), ('good', 0.227), ('right', 0.216), ('bike', 0.21), ('problem', 0.209)]
+Topic 13 : [('good', 0.362), ('people', 0.34), ('windows', 0.284), ('know', 0.262), ('file', 0.184)]
+Topic 14 : [('space', 0.399), ('think', 0.233), ('know', 0.181), ('nasa', 0.152), ('problem', 0.13)]
+Topic 15 : [('space', 0.316), ('good', 0.309), ('card', 0.226), ('people', 0.175), ('time', 0.145)]
+Topic 16 : [('people', 0.482), ('problem', 0.2), ('window', 0.153), ('time', 0.147), ('game', 0.129)]
+Topic 17 : [('time', 0.345), ('bike', 0.273), ('right', 0.256), ('windows', 0.2), ('file', 0.191)]
+Topic 18 : [('time', 0.597), ('problem', 0.155), ('file', 0.15), ('think', 0.128), ('israel', 0.109)]
+Topic 19 : [('file', 0.442), ('need', 0.266), ('card', 0.184), ('files', 0.175), ('right', 0.154)]
+Topic 20 : [('problem', 0.33), ('file', 0.277), ('thanks', 0.236), ('used', 0.192), ('space', 0.132)]
+```
+
+## 6) LSA의 장.단점
+장점
+- 쉽고 빠르게 구현 가능하다
+- 단어의 잠재적 의미를 이끌어낼 수 있다
+- 문서의 유사도 계산 등에서 좋은 성능을 보인다
+</br>
+단점
+- 새로운 데이터가 가될 경우, 다시 계산해야한다 </br>
+ ( 새로운 정보 update가 어려움! LSA 보다 word2vec등이 인기 있는 이유 )
