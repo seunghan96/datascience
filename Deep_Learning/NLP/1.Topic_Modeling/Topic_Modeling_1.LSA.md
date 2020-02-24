@@ -77,8 +77,8 @@ U_ = U[:,:2]
 VT_ = VT[:2,:]
 ```
 
-```python
 - U,S,V가 절단된 것을 확인할 수 있다
+```python
 U_
 
 array([[-2.39751712e-01,  7.51083898e-01],
@@ -94,3 +94,44 @@ array([[2.68731789, 0.        ],
        [0.        , 2.04508425]])
 ```
 
+### c. 실습 (fetch_20newsgroups)
+#### (1) import dataset
+```python
+import pandas as pd
+from sklearn.datasets import fetch_20newsgroups
+dataset = fetch_20newsgroups(shuffle=True,random_state=1, remove=('headers','footers','quotes'))
+documents = dataset.data
+```
+```python
+len(documents)
+
+11314
+```
+
+```
+documents[1]
+
+"\n\n\n\n\n\n\nYeah, do you expect people to read the FAQ, etc. and actually accept hard\natheism?  No, you need a little leap of faith, Jimmy.  Your logic runs out\nof steam!\n\n\n\n\n\n\n\nJim,\n\nSorry I can't pity you, Jim.  And I'm sorry that you have these feelings of\ndenial about the faith you need to get by.  Oh well, just pretend that it will\nall end happily ever after anyway.  Maybe if you start a new newsgroup,\nalt.atheist.hard, you won't be bummin' so much?\n\n\n\n\n\n\nBye-Bye, Big Jim.  Don't forget your Flintstone's Chewables!  :) \n--\nBake Timmons, III"
+```
+
+dataset.target_names
+['alt.atheism',
+ 'comp.graphics',
+ 'comp.os.ms-windows.misc',
+ 'comp.sys.ibm.pc.hardware',
+ 'comp.sys.mac.hardware',
+ 'comp.windows.x',
+ 'misc.forsale',
+ 'rec.autos',
+ 'rec.motorcycles',
+ 'rec.sport.baseball',
+ 'rec.sport.hockey',
+ 'sci.crypt',
+ 'sci.electronics',
+ 'sci.med',
+ 'sci.space',
+ 'soc.religion.christian',
+ 'talk.politics.guns',
+ 'talk.politics.mideast',
+ 'talk.politics.misc',
+ 'talk.religion.misc']
