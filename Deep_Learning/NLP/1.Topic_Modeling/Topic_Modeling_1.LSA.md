@@ -32,7 +32,7 @@ A가 mxn의 행렬일 때, 다음과 같이 3개의 행렬 곱으로 분해하�
   ( t를 크게 잡으면 기존의 행렬 A로부터 다양한 의미를 가져갈 수 있지만, t를 작게 잡아야 노이즈를 제거할 수 있다 )
 </br>
 
-## 4) LSA with python
+## 4) SVD with python
 
 ```python
 import numpy as np
@@ -95,8 +95,8 @@ array([[2.68731789, 0.        ],
        [0.        , 2.04508425]])
 ```
 
-### c. 실습 (fetch_20newsgroups)
-#### (1) import dataset
+## 5. 실습 (fetch_20newsgroups)
+### (1) import dataset
 ```python
 import pandas as pd
 from sklearn.datasets import fetch_20newsgroups
@@ -144,7 +144,7 @@ dataset.target_names
  'talk.religion.misc']
 ```
 
-#### (2) data preprocessing
+### (2) data preprocessing
 - 1) 영어가 아닌 모든 글자들은 공백으로 대체
 - 2) 네 글자 이상의 단어들만 남기고 지우기
 - 3) 모두 소문자로
@@ -181,7 +181,7 @@ tokenized_doc = news_df['clean_doc'].apply(lambda x : x.split()) # 2) tokenize
 tokenized_doc = tokenized_doc.apply(lambda x : [item for item in x if item not in stop_words])
 ```
 
-##### (3) TF-IDF matrix
+### (3) TF-IDF matrix
 - 지금까지, 불용어를 제거하기 위해 tokenize했었다
 - 하지만 TFIDF-Vectorizer는 (token화 되지 않은) text data를 입력으로 받기 때문에, 다시 역토큰화(Detokenization)을 해줘야 한다
 
