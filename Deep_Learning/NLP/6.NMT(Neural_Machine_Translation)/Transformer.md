@@ -7,12 +7,14 @@
 - Encoder & Decoder라는 단위가 1개가 아닌 N개를 사용할 수 있다 </br>
   ( 논문에서는 Encoder와 Decoder을 각각 6개 사용함 )
 
-<img src="https://wikidocs.net/images/page/31379/transformer2.PNG" width="270" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer2.PNG" width="270" />
 https://wikidocs.net/images/page/31379/transformer2.PNG </br>
 ( 논문에서는 6개의 encoder-decoder 구조를 사용 )
+</br>
 
 <img src="https://wikidocs.net/images/page/31379/transformer4_final_final_final.PNG" width="550" /> </br>
 https://wikidocs.net/images/page/31379/</br>
+</br>
 이 그림을 보면, Encoder로부터 정보를 받아 Decoder가 출력 결과를 만드는 구조는 동일하다. 다만 RNN은 사용하지 않음을 확인할 수 있다
 </br>
 </br>
