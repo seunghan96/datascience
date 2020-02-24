@@ -114,7 +114,7 @@ Self Attention을 사용하면 좋은 이유? ( 아래 Example 참고 )
 
 #### Example 
 </br>
-<img src="https://wikidocs.net/images/page/31379/transformer10.png" width="550" /> </br>
+<img src="https://wikidocs.net/images/page/31379/transformer10.png" width="260" /> </br>
 https://wikidocs.net/images/page/31379
 
 기존의 seq2seq의 attention은, 서로 다른 Encoder & Decoder 문장 사이의 연관성을 찾아냈기
