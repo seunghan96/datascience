@@ -220,7 +220,7 @@ decoder_outputs = decoder_softmax_layer(decoder_outputs)
 ```
 </br>
 
-- Encoder와 Decoder을 만든 이후, 이 둘을 합친 model을 
+- Encoder와 Decoder을 만든 이후, 이 둘을 합친 model을 생성
 ```
 model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
 model.compile(optimizer="adam", loss="categorical_crossentropy")
