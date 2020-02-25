@@ -1,6 +1,7 @@
 # [ BLEU ( Bilingual Evaluation Understudy Score ) ]
 BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어난지 측정하는 대표적인 score이다. 이번 포스트의 목적은, BLEU
 의 개념에 대해 이해하고 이를 python code로 구현하는 것이다.
+</br>
 
 ## 1. Introduction
 ### BLEU 요약
@@ -8,6 +9,7 @@ BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어�
 - 측정 기준 : n-gram에 기반
 - 장점 : 언어에 구애 받지 않고, 속도가 빠르다
 - 높을수록 좋은 성능을 의미
+</br>
 
 ### BLEU 식
 </br>
@@ -15,6 +17,7 @@ BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어�
 </br>
 </br>
 어떻게 해서 위와 같은 식이 나오게 되었는지 알아보자.
+</br>
 </br>
 
 ## 2. Unigram Precision (단어 개수 count로 측정)
@@ -41,19 +44,19 @@ BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어�
 <a href="https://www.codecogs.com/eqnedit.php?latex=Unigram\;&space;Precision&space;=&space;\frac{the\;&space;number\;&space;of\;Ca\;words(unigrams)\;which\;occur\;in\;any\;Ref}{the\;total\;number\;of\;words\;in\;the\;Ca}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Unigram\;&space;Precision&space;=&space;\frac{the\;&space;number\;&space;of\;Ca\;words(unigrams)\;which\;occur\;in\;any\;Ref}{the\;total\;number\;of\;words\;in\;the\;Ca}" title="Unigram\; Precision = \frac{the\; number\; of\;Ca\;words(unigrams)\;which\;occur\;in\;any\;Ref}{the\;total\;number\;of\;words\;in\;the\;Ca}" /></a>
 </br>
 </br>
-- Ca1 문장의 18개의 단어 중, 1개를 제외한 17개의 단어가 Ref1,Ref2,Ref3 중 하나에 포함되어 있다. 따라서, Ca1의 Unigram Precision
+Ca1 문장의 18개의 단어 중, 1개를 제외한 17개의 단어가 Ref1,Ref2,Ref3 중 하나에 포함되어 있다. 따라서, Ca1의 Unigram Precision
 은 17/18이라고 할 수 있다. 이와 같은 방식으로 Ca2의 Unigram Precision을 구하면, 8/14가 나온다. 이 기준에 따르면, Ca1이 Ca2보다 더 나은 
 번역이라고 할 수 있다.
 </br>
-</br>
 하지만 이와 같은 방법에는 한계가 있는데, 뒤에서 알아보자.
+</br>
 </br>
 
 ## 3. Modified Unigram Precision
 key idea : "중복을 제거함으로써 보정하기"
 </br>
-### Unigram Precision의 문제점?
-아래와 같은 candidate 문장은, 번역이 매우 엉망임에도 불구하고 Unigram Precision score는 1로, 최고의 번역으로 평가받게된다.
+### Unigram Precision의 문제점
+아래와 같은 candidate 문장은 번역이 매우 엉망임에도 불구하고 Unigram Precision score는 1로, 최고의 번역으로 평가받게된다.
 </br>
 ```
 - Ca : the the the the the the the
@@ -63,7 +66,6 @@ key idea : "중복을 제거함으로써 보정하기"
 - Ref2 : there is a cat on the mat
 
 ```
-</br>
 candiadate에는 'the'라는 단어가 7번 나온 것이 전부인데, 'the'라는 문장이 모두 Ref1,Ref2에 등장하여 Unigram Precision Score이 1이 되었다. 따라서 이를 측정할 새로운 count 방법이 필요하다. 이를 해결하기 위해 앞서 봤던 Unigram Precision 식의 count를 다음과 같이 수정한다
 </br>
 </br>
@@ -77,8 +79,10 @@ candiadate에는 'the'라는 단어가 7번 나온 것이 전부인데, 'the'라
 </br>
 </br>
 이에 따르면, 기존의 Ref1의 score는 1(=7/7)에서 2/7로 보정되게 된다.
+</br>
+</br>
 
-## Modified Unigram Precision 구현
+## 4. Modified Unigram Precision 구현
 ```
 from collections import Counter
 import numpy as np
@@ -140,6 +144,7 @@ print(result2)
 
 Counter({('the',): 5, ('he',): 2})
 ```
+</br>
 
 #### count_clip : 단순 count대신, 수정된 count
 ```
@@ -175,6 +180,7 @@ print(result)
 
 {('the',): 2}
 ```
+</br>
 
 #### Modified Precision
 ```
