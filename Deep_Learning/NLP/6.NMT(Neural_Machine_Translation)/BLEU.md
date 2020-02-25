@@ -3,23 +3,23 @@ BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어�
 의 개념에 대해 이해하고 이를 python code로 구현하는 것이다.
 
 ## 1. Introduction
-#### BLEU 요약
+### BLEU 요약
 - key idea : 기계 번역 결과와, 사람이 직접 번역한 결과가 얼마나 유사한지 측정
 - 측정 기준 : n-gram에 기반
 - 장점 : 언어에 구애 받지 않고, 속도가 빠르다
 - 높을수록 좋은 성능을 의미
 
-#### BLEU 식
+### BLEU 식
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=BLEU&space;=&space;exp(\sum_{n=1}^{N}w_nlogp_n)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?BLEU&space;=&space;exp(\sum_{n=1}^{N}w_nlogp_n)" title="BLEU = exp(\sum_{n=1}^{N}w_nlogp_n)" /></a>
 </br>
 </br>
 어떻게 해서 위와 같은 식이 나오게 되었는지 알아보자.
+</br>
 
 ## 2. Unigram Precision (단어 개수 count로 측정)
 우선, BLEU score를 구하기 위해 '기계가 번역한 문장'(Ca (Candidate))와,
-'사람이 번역한 문장'(Ref (Reference))이 있어야 한다. </br>
-간단한 예시로, 다음과 같은 2개의 Ca 와 3개의 Ref가 있다고 하자.  </br>
+'사람이 번역한 문장'(Ref (Reference))이 있어야 한다. 간단한 예시로, 다음과 같은 2개의 Ca 와 3개의 Ref가 있다고 하자.  </br>
 
 ```
 - Ca1 : It is a guide to action which ensures that the military always obeys the commands of the party.
@@ -32,10 +32,170 @@ BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어�
 
 - Ref3 : It is the practical guide for the army always to heed the directions of the party.
 ```
+</br>
 
-우리의 목표는, 이 두 개의 기계가 번역한 문장(Ca)중,
-어느 것이 실제 정답이라고 할 수 있는 '사람이 번역한 문장(Ref)'와 유사한지 측정하여 가장 잘 번역한 문장을
-채택하는 것이다. 이를 판단하기 위한 지표인 Unigram Precision의 식은 다음과 같다
+우리의 목표는 이 두 개의 기계가 번역한 문장(Ca)중 어느 것이 실제 정답이라고 할 수 있는 '사람이 번역한 문장(Ref)'와 유사한지 
+측정하여 가장 잘 번역한 문장을 채택하는 것이다. 이를 판단하기 위한 지표인 Unigram Precision의 식은 다음과 같다
+</br>
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=Unigram\;&space;Precision&space;=&space;\frac{the\;&space;number\;&space;of\;Ca\;words(unigrams)\;which\;occur\;in\;any\;Ref}{the\;total\;number\;of\;words\;in\;the\;Ca}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Unigram\;&space;Precision&space;=&space;\frac{the\;&space;number\;&space;of\;Ca\;words(unigrams)\;which\;occur\;in\;any\;Ref}{the\;total\;number\;of\;words\;in\;the\;Ca}" title="Unigram\; Precision = \frac{the\; number\; of\;Ca\;words(unigrams)\;which\;occur\;in\;any\;Ref}{the\;total\;number\;of\;words\;in\;the\;Ca}" /></a>
 </br>
+</br>
+- Ca1 문장의 18개의 단어 중, 1개를 제외한 17개의 단어가 Ref1,Ref2,Ref3 중 하나에 포함되어 있다. 따라서, Ca1의 Unigram Precision
+은 17/18이라고 할 수 있다. 이와 같은 방식으로 Ca2의 Unigram Precision을 구하면, 8/14가 나온다. 이 기준에 따르면, Ca1이 Ca2보다 더 나은 
+번역이라고 할 수 있다.
+</br>
+</br>
+하지만 이와 같은 방법에는 한계가 있는데, 뒤에서 알아보자.
+</br>
+
+## 3. Modified Unigram Precision
+key idea : "중복을 제거함으로써 보정하기"
+</br>
+### Unigram Precision의 문제점?
+아래와 같은 candidate 문장은, 번역이 매우 엉망임에도 불구하고 Unigram Precision score는 1로, 최고의 번역으로 평가받게된다.
+</br>
+```
+- Ca : the the the the the the the
+
+- Ref1 : the cat is on the mat
+
+- Ref2 : there is a cat on the mat
+
+```
+</br>
+candiadate에는 'the'라는 단어가 7번 나온 것이 전부인데, 'the'라는 문장이 모두 Ref1,Ref2에 등장하여 Unigram Precision Score이 1이 되었다. 따라서 이를 측정할 새로운 count 방법이 필요하다. 이를 해결하기 위해 앞서 봤던 Unigram Precision 식의 count를 다음과 같이 수정한다
+</br>
+</br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Count_{clip}&space;=&space;min(Count,\;&space;Max\_Ref\_Count)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Count_{clip}&space;=&space;min(Count,\;&space;Max\_Ref\_Count)" title="Count_{clip} = min(Count,\; Max\_Ref\_Count)" /></a>
+</br>
+</br>
+여기서 max_ref_count는, 최대로 많이 등장한 ref에서의 count를 의미한다. 앞의 예시에 적용하자면, ca의 'the'가 ref1에서는 2번, ref2에서는 1번 사용되었기 떄문에 max_ref_count는 2가 된다. 따라서 count값은 기존에는 7이었지만, 이제는 min(7,2)=2로 줄어들게 됨을 확인할 수 있다. 이와 같은 count방식을 통해 중복을 제거할 수 있다. 위 count식을 기존의 unigram precision에 넣은 것을 'Modified Unigram Precision'이라하고, 식으로 정리하면 다음과 같다.
+</br>
+</br>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Modified\;Unigram\;&space;Precision&space;=&space;\frac{\sum_{unigram&space;\in&space;Candiate}^{&space;}Count_{clip}(unigram)}{\sum_{unigram&space;\in&space;Candiate}^{&space;}Count(unigram)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Modified\;Unigram\;&space;Precision&space;=&space;\frac{\sum_{unigram&space;\in&space;Candiate}^{&space;}Count_{clip}(unigram)}{\sum_{unigram&space;\in&space;Candiate}^{&space;}Count(unigram)}" title="Modified\;Unigram\; Precision = \frac{\sum_{unigram \in Candiate}^{ }Count_{clip}(unigram)}{\sum_{unigram \in Candiate}^{ }Count(unigram)}" /></a>
+</br>
+</br>
+이에 따르면, 기존의 Ref1의 score는 1(=7/7)에서 2/7로 보정되게 된다.
+
+## Modified Unigram Precision 구현
+```
+from collections import Counter
+import numpy as np
+from nltk import ngrams
+```
+</br>
+
+- token 속의 n-gram을 count해주는 함수
+```
+def simple_count(tokens,n):
+    return Counter(ngrams(tokens,n))
+```
+
+```
+Counter(ngrams('I want rice with kimchi',2))
+
+Counter({('I', ' '): 1,
+         (' ', 'w'): 2,
+         ('w', 'a'): 1,
+         ('a', 'n'): 1,
+         ('n', 't'): 1,
+         ('t', ' '): 1,
+         (' ', 'r'): 1,
+         ('r', 'i'): 1,
+         ('i', 'c'): 1,
+         ('c', 'e'): 1,
+         ('e', ' '): 1,
+         ('w', 'i'): 1,
+         ('i', 't'): 1,
+         ('t', 'h'): 1,
+         ('h', ' '): 1,
+         (' ', 'k'): 1,
+         ('k', 'i'): 1,
+         ('i', 'm'): 1,
+         ('m', 'c'): 1,
+         ('c', 'h'): 1,
+         ('h', 'i'): 1})
+```
+</br>
+
+#### Example 1
+```
+candidate = "It is a guide to action which ensures that the military always obeys the commands of the party."
+
+tokens = candidate.split()
+result = simple_count(tokens, 1) # n=1 : Unigram
+print(result)
+
+Counter({('the',): 3, ('It',): 1, ('is',): 1, ('a',): 1, ('guide',): 1, ('to',): 1, ('action',): 1, ('which',): 1, ('ensures',): 1, ('that',): 1, ('military',): 1, ('always',): 1, ('obeys',): 1, ('commands',): 1, ('of',): 1, ('party.',): 1})
+```
+
+#### Example 2
+```
+candidate2 = 'the the he he the the the'
+
+tokens2 = candidate2.split() 
+result2 = simple_count(tokens2, 1)
+print(result2)
+
+Counter({('the',): 5, ('he',): 2})
+```
+
+#### count_clip : 단순 count대신, 수정된 count
+```
+def count_clip(ca,ref_list,n):
+    ca_cnt = simple_count(ca,n)
+    temp= dict()
+    
+    for ref in ref_list:
+        ref_cnt = simple_count(ref,n)
+        
+        for n_gram in ref_cnt:
+            if n_gram in temp:
+                temp[n_gram] = max(ref_cnt[n_gram], temp[n_gram])
+            else:
+                temp[n_gram] = ref_cnt[n_gram]
+    
+    return {n_gram:min(ca_cnt.get(n_gram,0),temp.get(n_gram,0))
+           for n_gram in ca_cnt}
+```
+
+```
+ca = 'the the the the the the the'
+
+ref_list = [
+    'the cat is on the mat',
+    'there is a cat on the mat'
+]
+```
+
+```
+result = count_clip(ca.split(), list(map(lambda ref: ref.split(), ref_list)),1)
+print(result)
+
+{('the',): 2}
+```
+
+#### Modified Precision
+```
+def mod_precision(ca,ref_list,n):
+    # 분자
+    clip = count_clip(ca,ref_list,n)
+    total_clip = sum(clip.values())
+    
+    # 분모
+    ct = simple_count(ca,n)
+    total_ct = sum(ct.values())
+    
+    if total_ct ==0:
+        total_ct=1
+    
+    return (total_clip/total_ct)        
+```
+
+```
+result3 = mod_precision(ca.split(),list(map(lambda ref: ref.split(), ref_list)),1)
+reslut3
+
+0.2857142857142857
+```
