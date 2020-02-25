@@ -18,6 +18,7 @@ BLEU는 기계 번역(Neural Machine Translation)의 성능이 얼마나 뛰어�
 어떻게 해서 위와 같은 식이 나오게 되었는지 알아보자.
 </br>
 </br>
+</br>
 
 ## 2. Unigram Precision (단어 개수 count로 측정)
 우선, BLEU score를 구하기 위해 '기계가 번역한 문장'(Ca (Candidate))와,
@@ -50,6 +51,7 @@ Ca1 문장의 18개의 단어 중, 1개를 제외한 17개의 단어가 Ref1,Ref
 하지만 이와 같은 방법에는 한계가 있는데, 뒤에서 알아보자.
 </br>
 </br>
+</br>
 
 ## 3. Modified Unigram Precision
 key idea : "중복을 제거함으로써 보정하기"
@@ -78,6 +80,7 @@ candiadate에는 'the'라는 단어가 7번 나온 것이 전부인데, 'the'라
 </br>
 </br>
 이에 따르면, 기존의 Ref1의 score는 1(=7/7)에서 2/7로 보정되게 된다.
+</br>
 </br>
 </br>
 
@@ -204,8 +207,10 @@ reslut3
 
 0.2857142857142857
 ```
+</br>
+</br>
 
-## 5. N-ram
+## 5. N-gram
 "순서를 고려"하기 위해, 기존의 unigram을 n-gram으로 확장하여 BLEU score를 계산할 수 있다. 이전과 같이 예시를 통해 이해해보자.
 ```
 - Ca1 : It is a guide to action which ensures that the military always obeys the commands of the party.
@@ -247,6 +252,8 @@ n-gram을 이용하여 다음의 예시 문장들을 파악해보자.
 
 그 다음 분모인 count값은, 해당 문장(Ca2)에 등장하는 bi-gram수로, 7-1(bigram이므로)=6이 된다.
 따라서, 위 식의 최종적인 bigram 정확도는 4/6이 됨을 알 수 있다.
+</br>
+</br>
 
 ## 6. BLEU의 일반화 식
 BLEU에 n-gram을 적용한 일반화된 식은 다음과 같다.
@@ -260,6 +267,7 @@ p1은 unigram, p2는 bigram... pn은 n-gram의 경우를 의미한다.</br>
 </br>
 </br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=BLEU&space;=&space;exp(\sum_{n=1}^{N}w_nlogp_n)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?BLEU&space;=&space;exp(\sum_{n=1}^{N}w_nlogp_n)" title="BLEU = exp(\sum_{n=1}^{N}w_nlogp_n)" /></a>
+</br>
 </br>
 </br>
 
@@ -282,6 +290,8 @@ p1은 unigram, p2는 bigram... pn은 n-gram의 경우를 의미한다.</br>
 - c : Candiate의 길이
 - r : Cnadidate와 가장 길이 차이가 작은 Reference의 길이
 이를 통해, 짧은 문장의 겨우에는 penalty가 커짐을 확인할 수 있다.
+</br>
+</br>
 
 ## 8. 최종적인 BLEU 구현
 지금까지 배운 것을 python으로 구현해보자. 우선, Brevity Penalty term을 구현해보자
@@ -319,6 +329,8 @@ def BLEU(candidate,reference_list, weights=[0.25,0.25,0.25,0.25]):
     score = np.sum([w_i*np.log(p_i) if p_i!=0 else 0 for w_i, p_i in zip(weights,p_n)])
     return bp*np.exp(score)
 ```
+</br>
+</br>
 
 ## 9. NLTK의 BLEU
 - nltk에서 제공하는 bleu score와, 우리가 직접 구현한 bleu score이 동일한지 확인해보자. 그 결과, 이 둘은 일치하는 것을 확인할 수 있다!
