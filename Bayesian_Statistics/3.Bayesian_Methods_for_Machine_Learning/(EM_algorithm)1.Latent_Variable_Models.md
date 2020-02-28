@@ -101,7 +101,6 @@ We solve this problem with EM algorithm.
    a) For each point, compute p(t=c | x_i, theta) ( = does x_i look like it came from cluster c? ) </br>
    b) Update Gaussian parameters theta to fit points assigned to them
 </br>
-</br>
 The illustration below shows how the gaussian parameters are updated after several iterations.
 </br>
 <img src="https://i.stack.imgur.com/Z5mcu.png" width="700" /> </br>
