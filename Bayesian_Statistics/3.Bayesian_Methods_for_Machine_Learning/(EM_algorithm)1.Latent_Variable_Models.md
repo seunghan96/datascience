@@ -98,12 +98,11 @@ We solve this problem with EM algorithm.
 #### EM algorithm
 - Step 1) Start with 2 randomly placed Gaussian parameters theta
 - Step 2) Until convergence, repeat : </br>
-   a) For each point, compute p(t=c | x_i, theta) ( = does x_i look like it came from cluster c? )
+   a) For each point, compute p(t=c | x_i, theta) ( = does x_i look like it came from cluster c? ) </br>
    b) Update Gaussian parameters theta to fit points assigned to them
 </br>
 </br>
 The illustration below shows how the gaussian parameters are updated after several iterations.
-</br>
 </br>
 <img src="https://i.stack.imgur.com/Z5mcu.png" width="700" /> </br>
 https://i.stack.imgur.com/Z5mcu.png
