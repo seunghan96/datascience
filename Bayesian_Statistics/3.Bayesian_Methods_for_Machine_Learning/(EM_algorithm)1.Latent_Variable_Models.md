@@ -54,6 +54,7 @@ How can we model our data probabilistically? One good way is using GMM, a Gaussi
 Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. (scikit-learn).
 </br>
 </br>
+<img src="https://miro.medium.com/max/753/1*lTv7e4Cdlp738X_WFZyZHA.png" width="550" /> </br>
 https://miro.medium.com/max/753/1*lTv7e4Cdlp738X_WFZyZHA.png
 </br>
 </br>
@@ -77,12 +78,11 @@ Compared to one Gaussian, GMM has more flexiblity. But it has more parameters to
 
 The way to train GMM is to find the values of the parameters which maximizes the likelihood ( = density of data set, given the parameters).
 </br>
-\begin{align*}
-\underset{\theta}{max}\;\; p(X|\theta) &= \prod_{i=1}^{N} p(x_i|\theta) \\
-&=\prod_{i=1}^{N}(\pi_1N(x_i|\mu_1,\Sigma_1)+...)
-\end{align*}
+<a href="https://www.codecogs.com/eqnedit.php?latex=\begin{align*}&space;\underset{\theta}{max}\;\;&space;p(X|\theta)&space;&=&space;\prod_{i=1}^{N}&space;p(x_i|\theta)&space;\\&space;&=\prod_{i=1}^{N}(\pi_1N(x_i|\mu_1,\Sigma_1)&plus;...)&space;\end{align*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\begin{align*}&space;\underset{\theta}{max}\;\;&space;p(X|\theta)&space;&=&space;\prod_{i=1}^{N}&space;p(x_i|\theta)&space;\\&space;&=\prod_{i=1}^{N}(\pi_1N(x_i|\mu_1,\Sigma_1)&plus;...)&space;\end{align*}" title="\begin{align*} \underset{\theta}{max}\;\; p(X|\theta) &= \prod_{i=1}^{N} p(x_i|\theta) \\ &=\prod_{i=1}^{N}(\pi_1N(x_i|\mu_1,\Sigma_1)+...) \end{align*}" /></a>
 </br>
 which are subject to <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_1&plus;&space;\pi_2&plus;\pi_3&space;=&space;1;&space;\;\;&space;\pi_k\geq&space;0;&space;\;\;\;&space;k=1,2,3...;&space;\;\;&space;\Sigma_k&space;>0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\pi_1&plus;&space;\pi_2&plus;\pi_3&space;=&space;1;&space;\;\;&space;\pi_k\geq&space;0;&space;\;\;\;&space;k=1,2,3...;&space;\;\;&space;\Sigma_k&space;>0" title="\pi_1+ \pi_2+\pi_3 = 1; \;\; \pi_k\geq 0; \;\;\; k=1,2,3...; \;\; \Sigma_k >0" /></a>
 </br>
 </br>
-How do we optimize this?
+How do we optimize this? We use 'EM algorithm', which we will talk about later. There are two reasons why we do not use SGD(Stochastic Gradient Descent) here, and use EM algorithm instead. First, it may be hard to follow the constraints, which is written above (like positive semi-definite covariance matrices). Second, EM algorithm is sometims much more faster and efficient.
+</br>
+As a summary, GMM is a flexible probability distribution, which can be better trained with EM algorithm than SGD.
