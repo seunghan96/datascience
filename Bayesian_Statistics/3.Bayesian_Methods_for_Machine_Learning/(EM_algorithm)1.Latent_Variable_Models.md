@@ -85,4 +85,24 @@ which are subject to <a href="https://www.codecogs.com/eqnedit.php?latex=\pi_1&p
 </br>
 How do we optimize this? We use 'EM algorithm', which we will talk about later. There are two reasons why we do not use SGD(Stochastic Gradient Descent) here, and use EM algorithm instead. First, it may be hard to follow the constraints, which is written above (like positive semi-definite covariance matrices). Second, EM algorithm is sometims much more faster and efficient.
 </br>
+
 As a summary, GMM is a flexible probability distribution, which can be better trained with EM algorithm than SGD.
+</br>
+</br>
+
+### d. Training GMM
+It is easy to find the gaussian distribution if we all know the sources of each data point. But in reality, we don't know the sources. We need gaussian parameters to estimate our sources. But also, to estimate the gaussian parameters, we need the sources!
+We solve this problem with EM algorithm.
+</br>
+EM algorithm
+- Step 1) Start with 2 randomly placed Gaussian parameters theta
+- Step 2) Until convergence, repeat : </br>
+   a) For each point, compute p(t=c | x_i, theta) ( = does x_i look like it came from cluster c? )
+   b) Update Gaussian parameters theta to fit points assigned to them
+</br>
+</br>
+The illustration below shows how the gaussian parameters are updated after several iterations.
+</br>
+</br>
+<img src="https://i.stack.imgur.com/Z5mcu.png" width="700" /> </br>
+https://i.stack.imgur.com/Z5mcu.png
